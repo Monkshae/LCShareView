@@ -1,0 +1,9 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+
+target 'LCShareView' do
+    pod 'SnapKit'                                               , ‘0.22.0’
+end
+

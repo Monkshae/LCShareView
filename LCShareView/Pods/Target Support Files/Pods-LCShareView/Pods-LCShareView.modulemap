@@ -1,0 +1,6 @@
+framework module Pods_LCShareView {
+  umbrella header "Pods-LCShareView-umbrella.h"
+
+  export *
+  module * { export * }
+}
