@@ -13,7 +13,7 @@ class InteractivityTransitionDelegate: NSObject,UIViewControllerTransitioningDel
     var gestureRecognizer: UIScreenEdgePanGestureRecognizer? = nil
     var targetEdge: UIRectEdge = .None
     
-    
+    //普通的非交互过度动画
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return InteractivityTransitionAnimator(targetEdge: targetEdge)
     }

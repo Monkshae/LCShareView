@@ -77,6 +77,4 @@ class InteractivityFirstController: UIViewController {
         self.presentViewController(secondController, animated: true, completion: nil)
     }
     
-    
-    
 }

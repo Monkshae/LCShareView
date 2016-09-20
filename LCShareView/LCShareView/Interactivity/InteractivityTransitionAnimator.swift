@@ -38,15 +38,15 @@ class InteractivityTransitionAnimator: NSObject,UIViewControllerAnimatedTransiti
         switch targetEdge {
         case UIRectEdge.Top: offset = CGVectorMake(0, 1)
         case UIRectEdge.Bottom: offset = CGVectorMake(0, -1)
-        case UIRectEdge.Left: offset = CGVectorMake(1, 0)
-        case UIRectEdge.Right: offset = CGVectorMake(-1, 0)
+        case UIRectEdge.Left: offset = CGVectorMake(-1, 0)
+        case UIRectEdge.Right: offset = CGVectorMake(1, 0)
         default:
             fatalError("targetEdge must be one of UIRectEdgeTop, UIRectEdgeBottom, UIRectEdgeLeft, or UIRectEdgeRight.")
         }
         
         if isPresent {
             fromView?.frame = fromFrame
-            toView?.frame = CGRectOffset(toFrame, toFrame.width * offset.dx * -1, toFrame.height * offset.dy * -1)
+            toView?.frame = CGRectOffset(toFrame, toFrame.width * offset.dx, toFrame.height * offset.dy)
             containerView?.addSubview(toView!)
         } else {
             fromView?.frame = fromFrame
@@ -60,8 +60,8 @@ class InteractivityTransitionAnimator: NSObject,UIViewControllerAnimatedTransiti
             if isPresent {
                 toView?.frame = toFrame
             } else {
-                fromView?.frame = CGRectOffset(fromFrame, fromFrame.size.width * offset.dx,
-                    fromFrame.size.height * offset.dy)
+                fromView?.frame = CGRectOffset(fromFrame, fromFrame.size.width * offset.dx * -1,
+                    fromFrame.size.height * offset.dy * -1)
             }
             }) { (finished) in
                 let canceled = transitionContext.transitionWasCancelled()
