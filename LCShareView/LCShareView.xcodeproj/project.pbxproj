@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		C60C4E64702981AEB26947F7 /* Pods_LCShareView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4131FAA807F532D1D761A880 /* Pods_LCShareView.framework */; };
 		D90EF6941D8FB4FE000FE20D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D90EF6931D8FB4FE000FE20D /* Main.storyboard */; };
+		D91339CA1D900D38005EBD24 /* CrossDissolveFirstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91339C81D900D38005EBD24 /* CrossDissolveFirstController.swift */; };
+		D91339CB1D900D38005EBD24 /* CrossDissolveSecondController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91339C91D900D38005EBD24 /* CrossDissolveSecondController.swift */; };
+		D91339CD1D900D95005EBD24 /* HalfWaySpringAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91339CC1D900D95005EBD24 /* HalfWaySpringAnimator.swift */; };
+		D91339CF1D90D2AA005EBD24 /* CrossDissolveAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91339CE1D90D2AA005EBD24 /* CrossDissolveAnimator.swift */; };
 		D9F4A01D1D8EAB3800280A2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4A01C1D8EAB3800280A2E /* AppDelegate.swift */; };
 		D9F4A01F1D8EAB3800280A2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4A01E1D8EAB3800280A2E /* ViewController.swift */; };
 		D9F4A0241D8EAB3800280A2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F4A0231D8EAB3800280A2E /* Assets.xcassets */; };
@@ -20,6 +24,10 @@
 		581B2376FC2D19FC9748E563 /* Pods-LCShareView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCShareView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LCShareView/Pods-LCShareView.debug.xcconfig"; sourceTree = "<group>"; };
 		B2DBA7ECC9C92685F95BB8EB /* Pods-LCShareView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCShareView.release.xcconfig"; path = "Pods/Target Support Files/Pods-LCShareView/Pods-LCShareView.release.xcconfig"; sourceTree = "<group>"; };
 		D90EF6931D8FB4FE000FE20D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D91339C81D900D38005EBD24 /* CrossDissolveFirstController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossDissolveFirstController.swift; sourceTree = "<group>"; };
+		D91339C91D900D38005EBD24 /* CrossDissolveSecondController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossDissolveSecondController.swift; sourceTree = "<group>"; };
+		D91339CC1D900D95005EBD24 /* HalfWaySpringAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfWaySpringAnimator.swift; sourceTree = "<group>"; };
+		D91339CE1D90D2AA005EBD24 /* CrossDissolveAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossDissolveAnimator.swift; sourceTree = "<group>"; };
 		D9F4A0191D8EAB3800280A2E /* LCShareView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCShareView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F4A01C1D8EAB3800280A2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9F4A01E1D8EAB3800280A2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +65,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D91339C71D900D38005EBD24 /* CrossDissolve */ = {
+			isa = PBXGroup;
+			children = (
+				D91339C81D900D38005EBD24 /* CrossDissolveFirstController.swift */,
+				D91339C91D900D38005EBD24 /* CrossDissolveSecondController.swift */,
+				D91339CC1D900D95005EBD24 /* HalfWaySpringAnimator.swift */,
+				D91339CE1D90D2AA005EBD24 /* CrossDissolveAnimator.swift */,
+			);
+			path = CrossDissolve;
+			sourceTree = "<group>";
+		};
 		D9F4A0101D8EAB3800280A2E = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +99,7 @@
 			children = (
 				D9F4A01C1D8EAB3800280A2E /* AppDelegate.swift */,
 				D9F4A01E1D8EAB3800280A2E /* ViewController.swift */,
+				D91339C71D900D38005EBD24 /* CrossDissolve */,
 				D90EF6931D8FB4FE000FE20D /* Main.storyboard */,
 				D9F4A0231D8EAB3800280A2E /* Assets.xcassets */,
 				D9F4A0251D8EAB3800280A2E /* LaunchScreen.storyboard */,
@@ -210,8 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D91339CD1D900D95005EBD24 /* HalfWaySpringAnimator.swift in Sources */,
 				D9F4A01F1D8EAB3800280A2E /* ViewController.swift in Sources */,
+				D91339CB1D900D38005EBD24 /* CrossDissolveSecondController.swift in Sources */,
 				D9F4A01D1D8EAB3800280A2E /* AppDelegate.swift in Sources */,
+				D91339CF1D90D2AA005EBD24 /* CrossDissolveAnimator.swift in Sources */,
+				D91339CA1D900D38005EBD24 /* CrossDissolveFirstController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -48,13 +48,17 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let nav: UINavigationController
         switch indexPath.row {
-        case 0: break
-        case 1: break
-        case 2: break
+        case 0: nav = UINavigationController(rootViewController: CrossDissolveFirstController())
+        case 1: nav = UINavigationController(rootViewController: CrossDissolveFirstController())
+        case 2: nav = UINavigationController(rootViewController: CrossDissolveFirstController())
         default:
+            nav = UINavigationController()
             break
         }
-//        self.presentViewController(nav, animated: true, completion: nil)
+        self.presentViewController(nav, animated: true, completion: nil)
     }
+    
+
 }
