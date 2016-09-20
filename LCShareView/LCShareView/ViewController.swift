@@ -40,7 +40,6 @@ extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let tableViewCell = UITableViewCell(style: .Default, reuseIdentifier: String(UITableViewCell))
         tableViewCell.textLabel?.text = titleArray[indexPath.row]
-        tableViewCell.selectionStyle = .None
         return tableViewCell
     }
 }
@@ -51,7 +50,7 @@ extension ViewController: UITableViewDelegate {
         let nav: UINavigationController
         switch indexPath.row {
         case 0: nav = UINavigationController(rootViewController: CrossDissolveFirstController())
-        case 1: nav = UINavigationController(rootViewController: CrossDissolveFirstController())
+        case 1: nav = UINavigationController(rootViewController: InteractivityFirstController())
         case 2: nav = UINavigationController(rootViewController: CrossDissolveFirstController())
         default:
             nav = UINavigationController()
