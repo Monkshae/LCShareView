@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstCollectionViewController: UIViewController {
+class FirstCollectionController: UIViewController {
 
     
     lazy var collectionView: UICollectionView = {
@@ -26,6 +26,21 @@ class FirstCollectionViewController: UIViewController {
     }()
     
     lazy var things = Thing.exampleThings()
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        //将自己设置为naviagation controller 的代理，以便于做转场动画
+        navigationController?.delegate = self
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        //离开页面后将delegate置空
+        if navigationController?.delegate != nil {
+            navigationController?.delegate = nil
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +60,7 @@ class FirstCollectionViewController: UIViewController {
 
 }
 
-extension FirstCollectionViewController:  UICollectionViewDataSource {
+extension FirstCollectionController:  UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return things.count
@@ -62,12 +77,24 @@ extension FirstCollectionViewController:  UICollectionViewDataSource {
 }
 
 
-extension FirstCollectionViewController: UICollectionViewDelegate {
+extension FirstCollectionController: UICollectionViewDelegate {
     
-    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let controller = SecondDetailController()
+        controller.thing = things[indexPath.row]
+    }
 }
 
 
-extension FirstCollectionViewController: UICollectionViewDelegateFlowLayout {
-   
+extension FirstCollectionController: UINavigationControllerDelegate {
+    
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        if fromVC == self && toVC is FirstCollectionController {
+//            return  ExpandTransition(gestureRecognizer: <#T##UIScreenEdgePanGestureRecognizer?#>)
+//        }else {
+//            return nil
+//        }
+        
+        return nil
+    }
 }

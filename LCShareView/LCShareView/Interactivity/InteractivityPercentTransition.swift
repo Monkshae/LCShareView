@@ -38,12 +38,13 @@ class InteractivityPercentTransition: UIPercentDrivenInteractiveTransition {
             else {
                 self.cancelInteractiveTransition()
             }
-            default: self.cancelInteractiveTransition()
+        default: self.cancelInteractiveTransition()
         }
     }
     
     private func percentForGesture(gesture: UIScreenEdgePanGestureRecognizer) -> CGFloat {
         let transitionContainerView = transitionContext?.containerView()
+        //locationInView获取到的是手指点击屏幕实时的坐标点
         let location = gesture.locationInView(transitionContainerView)
         let width = transitionContainerView?.bounds.width
         let height = transitionContainerView?.bounds.height

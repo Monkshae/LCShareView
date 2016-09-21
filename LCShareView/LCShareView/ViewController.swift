@@ -52,7 +52,7 @@ extension ViewController: UITableViewDelegate {
         case 0: nav = UINavigationController(rootViewController: CrossDissolveFirstController())
         case 1: nav = UINavigationController(rootViewController: InteractivityFirstController())
         case 2: nav = UINavigationController(rootViewController: CustomFirstController())
-        case 3: nav = UINavigationController(rootViewController: FirstCollectionViewController())
+        case 3: nav = UINavigationController(rootViewController: FirstCollectionController())
         default:
             nav = UINavigationController()
             break
