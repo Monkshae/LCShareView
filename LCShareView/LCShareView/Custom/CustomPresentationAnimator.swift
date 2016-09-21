@@ -29,5 +29,31 @@ class CustomPresentationAnimator: NSObject, UIViewControllerAnimatedTransitionin
         var fromViewFinalFrame = transitionContext.finalFrameForViewController(fromViewController!)
         var toViewInitialFrame = transitionContext.initialFrameForViewController(toViewController!)
         let toViewFinalFrame = transitionContext.finalFrameForViewController(toViewController!)
+        if toView != nil {
+            containerView!.addSubview(toView!)
+        }
+        
+        if isPresenting {
+            toViewInitialFrame.origin = CGPointMake(CGRectGetMinX(containerView!.bounds), CGRectGetMaxY(containerView!.bounds))
+            toViewInitialFrame.size = toViewFinalFrame.size
+            toView?.frame = toViewInitialFrame
+        } else {
+            fromViewFinalFrame = CGRectOffset(fromView!.frame, 0, CGRectGetHeight(fromView!.frame))
+        }
+        
+        let transitionDuration = self.transitionDuration(transitionContext)
+        UIView.animateWithDuration(transitionDuration, animations: {
+            if isPresenting {
+                toView?.frame = toViewFinalFrame
+            }
+            else {
+                fromView?.frame = fromViewFinalFrame
+            }
+            
+        }) { (finished: Bool) -> Void in
+            let wasCancelled = transitionContext.transitionWasCancelled()
+            transitionContext.completeTransition(!wasCancelled)
+        }
+
     }
 }

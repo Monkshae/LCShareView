@@ -51,7 +51,7 @@ extension ViewController: UITableViewDelegate {
         switch indexPath.row {
         case 0: nav = UINavigationController(rootViewController: CrossDissolveFirstController())
         case 1: nav = UINavigationController(rootViewController: InteractivityFirstController())
-        case 2: nav = UINavigationController(rootViewController: CrossDissolveFirstController())
+        case 2: nav = UINavigationController(rootViewController: CustomFirstController())
         default:
             nav = UINavigationController()
             break

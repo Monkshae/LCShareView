@@ -81,9 +81,9 @@ class CustomPresentationController: UIPresentationController {
     }
     
     //是否remove presentedView,默认是false
-    override func shouldRemovePresentersView() -> Bool{
-        return false
-    }
+//    override func shouldRemovePresentersView() -> Bool{
+//        return false
+//    }
 }
 
 
@@ -133,5 +133,16 @@ extension CustomPresentationController {
 
 extension CustomPresentationController: UIViewControllerTransitioningDelegate {
     
+    //提供一个UIPresentationController的实例
+    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
+        return self
+    }
     
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return CustomPresentationAnimator()
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return CustomPresentationAnimator()
+    }
 }
