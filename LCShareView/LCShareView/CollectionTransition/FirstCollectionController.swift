@@ -58,6 +58,15 @@ class FirstCollectionController: UIViewController {
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)    
     }
 
+    //根据thing object获取cell
+    func collectionViewCellForThing(thing: Thing) -> ThingCell? {
+        if let index = things.indexOf(thing) {
+            return collectionView.cellForItemAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as? ThingCell
+        }else {
+            return nil
+        }
+    }
+    
 }
 
 extension FirstCollectionController:  UICollectionViewDataSource {
@@ -82,6 +91,7 @@ extension FirstCollectionController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let controller = SecondDetailController()
         controller.thing = things[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 
@@ -89,12 +99,10 @@ extension FirstCollectionController: UICollectionViewDelegate {
 extension FirstCollectionController: UINavigationControllerDelegate {
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        if fromVC == self && toVC is FirstCollectionController {
-//            return  ExpandTransition(gestureRecognizer: <#T##UIScreenEdgePanGestureRecognizer?#>)
-//        }else {
-//            return nil
-//        }
-        
-        return nil
+        if fromVC == self && toVC is FirstCollectionController {
+            return  NavigationPushAnimator()
+        }else {
+            return nil
+        }
     }
 }

@@ -30,7 +30,7 @@ class ExpandTransition: UIPercentDrivenInteractiveTransition {
         var progress =  recognizer.translationInView(transitionContainerView).x / transitionContainerView!.bounds.width
         progress = min(1.0, max(0.0, progress))
         switch recognizer.state {
-        case .Began: break
+        case .Began: break 
         case .Changed: self.updateInteractiveTransition(progress)  //手势滑动，更新百分比
         case .Ended:
             if progress >= 0.5 {

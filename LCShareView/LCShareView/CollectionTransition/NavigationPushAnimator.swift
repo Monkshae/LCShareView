@@ -17,10 +17,7 @@ class NavigationPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         let fromController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! FirstCollectionController
         let toController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! SecondDetailController
-        let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)
         let toView = transitionContext.viewForKey(UITransitionContextToViewKey)
-        
-        
         let containerView = transitionContext.containerView()
         
         let cell = fromController.collectionView .cellForItemAtIndexPath((fromController.collectionView.indexPathsForSelectedItems()?.first)!) as! ThingCell
@@ -29,16 +26,21 @@ class NavigationPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         toView?.frame = transitionContext.finalFrameForViewController(toController)
         toView?.alpha = 0.0
-        toController.imageView?.hidden = true
+        toController.imageView.hidden = true
         containerView?.addSubview(toView!)
         containerView?.addSubview(cellImageSnapshot!)
         
         UIView.animateWithDuration(transitionDuration(transitionContext), animations: { 
             toView?.alpha = 1.0
-            let frame = containerView?.convertRect((toController.imageView?.frame)!, fromView: toController.view)
-            
+//            let frame = containerView?.convertRect(toController.imageView.frame, fromView: toController.view)
+            cellImageSnapshot?.frame = toController.imageView.frame
         }) { (finished: Bool) in
             
+            toController.imageView.hidden = false
+            //pop前提前设置显示为yes
+//            cell.hidden = false
+            cellImageSnapshot?.removeFromSuperview()
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         }
     }
 }
