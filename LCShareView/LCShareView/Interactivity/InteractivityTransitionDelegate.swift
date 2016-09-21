@@ -8,6 +8,7 @@
 
 import UIKit
 
+//这里将delegate单独作为一个文件，主要是为了解耦，能让controller少一些方法
 class InteractivityTransitionDelegate: NSObject,UIViewControllerTransitioningDelegate {
     
     var gestureRecognizer: UIScreenEdgePanGestureRecognizer? = nil

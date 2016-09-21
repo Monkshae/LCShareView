@@ -13,6 +13,7 @@ class CrossDissolveFirstController: UIViewController {
     lazy var secondController:CrossDissolveSecondController = {
         let  controller =  CrossDissolveSecondController()
         controller.modalPresentationStyle = .FullScreen
+        //设置转场动画代理
         controller.transitioningDelegate = self
         return controller
     }()

@@ -45,11 +45,11 @@ class InteractivityTransitionAnimator: NSObject,UIViewControllerAnimatedTransiti
         }
         
         if isPresent {
-            fromView?.frame = fromFrame
+//            fromView?.frame = fromFrame
             toView?.frame = CGRectOffset(toFrame, toFrame.width * offset.dx, toFrame.height * offset.dy)
             containerView?.addSubview(toView!)
         } else {
-            fromView?.frame = fromFrame
+//            fromView?.frame = fromFrame
             toView?.frame = toFrame
             //这里需要注意不能用containerView?.addSubview(toView!)           
             containerView!.insertSubview(toView!, belowSubview: fromView!)
