@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: CGRectZero)
         return tableView
     }()
-    let titleArray = ["淡入淡出", "滑动", "自定义动画"]
+    let titleArray = ["淡入淡出", "滑动", "自定义动画","CollectionViewCell渐变"]
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "自定义跳转动画"
@@ -52,6 +52,7 @@ extension ViewController: UITableViewDelegate {
         case 0: nav = UINavigationController(rootViewController: CrossDissolveFirstController())
         case 1: nav = UINavigationController(rootViewController: InteractivityFirstController())
         case 2: nav = UINavigationController(rootViewController: CustomFirstController())
+        case 3: nav = UINavigationController(rootViewController: FirstCollectionViewController())
         default:
             nav = UINavigationController()
             break

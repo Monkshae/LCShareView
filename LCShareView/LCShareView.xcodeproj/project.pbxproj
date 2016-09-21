@@ -22,6 +22,9 @@
 		D91339DF1D914B4C005EBD24 /* CustomSecondController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91339DE1D914B4C005EBD24 /* CustomSecondController.swift */; };
 		D91339E11D91526D005EBD24 /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91339E01D91526D005EBD24 /* CustomPresentationController.swift */; };
 		D91339E31D923F3E005EBD24 /* CustomPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91339E21D923F3E005EBD24 /* CustomPresentationAnimator.swift */; };
+		D91339E61D927816005EBD24 /* FirstCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91339E51D927816005EBD24 /* FirstCollectionViewController.swift */; };
+		D91339E81D927A9F005EBD24 /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91339E71D927A9F005EBD24 /* Thing.swift */; };
+		D91339EA1D927C96005EBD24 /* ThingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91339E91D927C96005EBD24 /* ThingCell.swift */; };
 		D9F4A01D1D8EAB3800280A2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4A01C1D8EAB3800280A2E /* AppDelegate.swift */; };
 		D9F4A01F1D8EAB3800280A2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4A01E1D8EAB3800280A2E /* ViewController.swift */; };
 		D9F4A0241D8EAB3800280A2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9F4A0231D8EAB3800280A2E /* Assets.xcassets */; };
@@ -46,6 +49,9 @@
 		D91339DE1D914B4C005EBD24 /* CustomSecondController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSecondController.swift; sourceTree = "<group>"; };
 		D91339E01D91526D005EBD24 /* CustomPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		D91339E21D923F3E005EBD24 /* CustomPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationAnimator.swift; sourceTree = "<group>"; };
+		D91339E51D927816005EBD24 /* FirstCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCollectionViewController.swift; sourceTree = "<group>"; };
+		D91339E71D927A9F005EBD24 /* Thing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
+		D91339E91D927C96005EBD24 /* ThingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingCell.swift; sourceTree = "<group>"; };
 		D9F4A0191D8EAB3800280A2E /* LCShareView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCShareView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F4A01C1D8EAB3800280A2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9F4A01E1D8EAB3800280A2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +123,16 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		D91339E41D9277F3005EBD24 /* CollectionTransition */ = {
+			isa = PBXGroup;
+			children = (
+				D91339E51D927816005EBD24 /* FirstCollectionViewController.swift */,
+				D91339E71D927A9F005EBD24 /* Thing.swift */,
+				D91339E91D927C96005EBD24 /* ThingCell.swift */,
+			);
+			path = CollectionTransition;
+			sourceTree = "<group>";
+		};
 		D9F4A0101D8EAB3800280A2E = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +159,7 @@
 				D91339C71D900D38005EBD24 /* CrossDissolve */,
 				D91339D01D911E5F005EBD24 /* Interactivity */,
 				D91339DB1D914B0E005EBD24 /* Custom */,
+				D91339E41D9277F3005EBD24 /* CollectionTransition */,
 				D90EF6931D8FB4FE000FE20D /* Main.storyboard */,
 				D9F4A0231D8EAB3800280A2E /* Assets.xcassets */,
 				D9F4A0251D8EAB3800280A2E /* LaunchScreen.storyboard */,
@@ -282,9 +299,12 @@
 				D9F4A01D1D8EAB3800280A2E /* AppDelegate.swift in Sources */,
 				D91339DD1D914B39005EBD24 /* CustomFirstController.swift in Sources */,
 				D91339D61D912206005EBD24 /* InteractivityTransitionDelegate.swift in Sources */,
+				D91339E61D927816005EBD24 /* FirstCollectionViewController.swift in Sources */,
+				D91339EA1D927C96005EBD24 /* ThingCell.swift in Sources */,
 				D91339DF1D914B4C005EBD24 /* CustomSecondController.swift in Sources */,
 				D91339CF1D90D2AA005EBD24 /* CrossDissolveAnimator.swift in Sources */,
 				D91339D21D911FA0005EBD24 /* InteractivityFirstController.swift in Sources */,
+				D91339E81D927A9F005EBD24 /* Thing.swift in Sources */,
 				D91339D41D91201F005EBD24 /* InteractivitySecondController.swift in Sources */,
 				D91339CA1D900D38005EBD24 /* CrossDissolveFirstController.swift in Sources */,
 				D91339D81D912358005EBD24 /* InteractivityTransitionAnimator.swift in Sources */,

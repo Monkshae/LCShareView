@@ -24,7 +24,7 @@ class CustomFirstController: UIViewController {
         view.backgroundColor = UIColor(red: 224/255, green: 222/255, blue: 1, alpha: 1)
         /// 设置navigationItem
         navigationItem.title = "自定义Presentation"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(CustomFirstController.leftBarButtonDidClicked))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(CustomFirstController.leftBarButtonDidClicked))
         
         // 创建label
         let label = UILabel()
