@@ -33,12 +33,16 @@ class NavigationPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         UIView.animateWithDuration(transitionDuration(transitionContext), animations: { 
             toView?.alpha = 1.0
 //            let frame = containerView?.convertRect(toController.imageView.frame, fromView: toController.view)
-            cellImageSnapshot?.frame = toController.imageView.frame
+//            cellImageSnapshot?.frame = toController.imageView.frame
+            
+             //这里有疑问
+             let frame = containerView?.convertRect(toController.imageView.frame, fromView: toController.view)
+            cellImageSnapshot?.frame = frame!
         }) { (finished: Bool) in
             
             toController.imageView.hidden = false
             //pop前提前设置显示为yes
-//            cell.hidden = false
+            cell.hidden = false
             cellImageSnapshot?.removeFromSuperview()
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         }

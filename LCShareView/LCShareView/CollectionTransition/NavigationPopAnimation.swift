@@ -39,6 +39,7 @@ class NavigationPopAnimation: NSObject, UIViewControllerAnimatedTransitioning {
             //此时截图和cell的image已经一样大了，就删除视觉上的snapshot
             imageSnapshot.removeFromSuperview()
             cell?.imageView?.hidden = false
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         }
         
     }

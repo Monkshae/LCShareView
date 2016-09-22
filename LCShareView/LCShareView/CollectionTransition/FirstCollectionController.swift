@@ -55,7 +55,7 @@ class FirstCollectionController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(InteractivityFirstController.animationAction(_:)))
     }
     func animationAction(sender: AnyObject) {
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)    
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
 
     //根据thing object获取cell
@@ -99,7 +99,7 @@ extension FirstCollectionController: UICollectionViewDelegate {
 extension FirstCollectionController: UINavigationControllerDelegate {
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if fromVC == self && toVC is FirstCollectionController {
+        if fromVC is FirstCollectionController && toVC is SecondDetailController {
             return  NavigationPushAnimator()
         }else {
             return nil

@@ -44,7 +44,8 @@ class SecondDetailController: UIViewController {
         view.backgroundColor = UIColor(red: 0x3A/255, green: 0xDB/255, blue: 0xD2/255, alpha: 1)
         view.addSubview(imageView)
         view.addSubview(overviewLabel)
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(InteractivityFirstController.animationAction(_:)))
+
     }
 
     
