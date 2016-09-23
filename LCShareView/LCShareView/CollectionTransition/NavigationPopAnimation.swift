@@ -23,6 +23,7 @@ class NavigationPopAnimation: NSObject, UIViewControllerAnimatedTransitioning {
         let containerView = transitionContext.containerView()
         
         let imageSnapshot = fromController.imageView.snapshotViewAfterScreenUpdates(false)
+        imageSnapshot.frame = (containerView?.convertRect(fromController.imageView.frame, fromView: fromController.imageView.superview))!
         fromController.imageView.hidden = true
         
         let cell = toController.collectionViewCellForThing(fromController.thing!)

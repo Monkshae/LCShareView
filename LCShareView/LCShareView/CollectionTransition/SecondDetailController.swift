@@ -26,8 +26,12 @@ class SecondDetailController: UIViewController {
         }
     }
 
-    lazy var interactiveTransitionRecognizer: UIScreenEdgePanGestureRecognizer = UIScreenEdgePanGestureRecognizer.init(target: self, action: #selector(InteractivitySecondController.animationAction(_:)))
-
+    lazy var navTransitionRecognizer: UIScreenEdgePanGestureRecognizer = {
+       let gestureRecognizer =  UIScreenEdgePanGestureRecognizer.init(target: self, action: #selector(InteractivitySecondController.animationAction(_:)))
+        gestureRecognizer.edges = .Left
+        return gestureRecognizer
+    }()
+    var transition: ExpandTransition?
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -49,14 +53,23 @@ class SecondDetailController: UIViewController {
         view.addSubview(imageView)
         view.addSubview(overviewLabel)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(InteractivityFirstController.animationAction(_:)))
+        view.addGestureRecognizer(navTransitionRecognizer)
+        transition = ExpandTransition(gestureRecognizer: navTransitionRecognizer)
 
     }
 
     
     func animationAction(gestureRecongizer: UIScreenEdgePanGestureRecognizer) {
+        
+        if let transitionDelegate = transitioningDelegate as? NavIntertivityTransitionDelegate {
+            if gestureRecongizer.isKindOfClass(UIGestureRecognizer) {
+                transitionDelegate.gestureRecognizer = navTransitionRecognizer
+            } else {
+                transitionDelegate.gestureRecognizer = nil
+            }
+        }
         navigationController?.popViewControllerAnimated(true)
     }
-    
 }
 
 
@@ -71,10 +84,12 @@ extension SecondDetailController: UINavigationControllerDelegate {
     }
     
     func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        if animationController is NavigationPopAnimation {
-            return ExpandTransition(gestureRecognizer: interactiveTransitionRecognizer)
-        }else {
+        
+        if transitioningDelegate as? NavIntertivityTransitionDelegate != nil {
+            return transition
+        } else{
             return nil
         }
+
     }
 }
