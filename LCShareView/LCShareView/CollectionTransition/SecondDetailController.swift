@@ -20,7 +20,11 @@ class SecondDetailController: UIViewController {
         label.font = UIFont(name: "Helvetica", size: 60)
         return label
     }()
-    var thing: Thing?
+    var thing: Thing? {
+        didSet{
+            imageView.image = thing?.image
+        }
+    }
 
     lazy var interactiveTransitionRecognizer: UIScreenEdgePanGestureRecognizer = UIScreenEdgePanGestureRecognizer.init(target: self, action: #selector(InteractivitySecondController.animationAction(_:)))
 

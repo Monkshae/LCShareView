@@ -34,7 +34,6 @@ class NavigationPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             toView?.alpha = 1.0
 //            let frame = containerView?.convertRect(toController.imageView.frame, fromView: toController.view)
 //            cellImageSnapshot?.frame = toController.imageView.frame
-            
              //这里有疑问
              let frame = containerView?.convertRect(toController.imageView.frame, fromView: toController.view)
             cellImageSnapshot?.frame = frame!
