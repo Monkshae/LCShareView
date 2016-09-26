@@ -28,10 +28,12 @@ class NavIntertivityTransitionDelegate: NSObject, UINavigationControllerDelegate
     }
     
     
-//    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-//        
-//        return    ExpandTransition(gestureRecognizer: gestureRecognizer)
-//        
-//    }
+    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        //push动画没有手势，这里的就是个demo，不是严谨的判断
+        if gestureRecognizer != nil {
+            return  ExpandTransition(gestureRecognizer: gestureRecognizer)
+        }
+        return nil
+    }
     
 }

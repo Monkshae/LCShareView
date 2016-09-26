@@ -40,44 +40,42 @@ class SecondDetailController: UIViewController {
         view.backgroundColor = UIColor(red: 0x3A/255, green: 0xDB/255, blue: 0xD2/255, alpha: 1)
         view.addSubview(imageView)
         view.addSubview(overviewLabel)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(InteractivityFirstController.animationAction(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SecondDetailController.didButtonClicked(_:)))
         view.addGestureRecognizer(navTransitionRecognizer)
-//        transition = ExpandTransition(gestureRecognizer: navTransitionRecognizer)
-        navigationController?.delegate = navDelegate
     }
 
     
+    //navigationController是共有的，离开页面后记得置空
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        //将自己设置为naviagation controller 的代理，以便于做转场动画
+        navigationController?.delegate = navDelegate
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        //离开页面后将delegate置空
+        if navigationController?.delegate != nil {
+            navigationController?.delegate = nil
+        }
+    }
+    
+    
+    
+    func didButtonClicked(sender: UIButton)  {
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    
     func animationAction(gestureRecongizer: UIScreenEdgePanGestureRecognizer) {
         
-//        if gestureRecongizer.isKindOfClass(UIGestureRecognizer) {
-//            navDelegate.gestureRecognizer = navTransitionRecognizer
-//        } else {
-//            navDelegate.gestureRecognizer = nil
-//        }
-        
+        if let nav =  navigationController?.delegate as?  NavIntertivityTransitionDelegate {
+            nav.gestureRecognizer = gestureRecongizer
+        } else {
+            navDelegate.gestureRecognizer = nil
+        }
+    
         //这句话开始后执行转场动画
         navigationController?.popViewControllerAnimated(true)
     }
 }
-
-//
-//extension SecondDetailController: UINavigationControllerDelegate {
-//    
-//    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        if fromVC == self && toVC is FirstCollectionController {
-//            return  NavigationPopAnimation()
-//        }else {
-//            return nil
-//        }
-//    }
-//    
-//    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-//        
-//        if transitioningDelegate as? NavIntertivityTransitionDelegate != nil {
-//            return transition
-//        } else{
-//            return nil
-//        }
-//
-//    }
-//}

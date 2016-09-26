@@ -16,7 +16,7 @@ class ExpandTransition: UIPercentDrivenInteractiveTransition {
     init(gestureRecognizer: UIScreenEdgePanGestureRecognizer?) {
         super.init()
         self.gestureRecognizer = gestureRecognizer
-        self.gestureRecognizer?.addTarget(self, action: #selector(InteractivityPercentTransition.gestureRecognizeDidUpdate(_:)))
+        self.gestureRecognizer?.addTarget(self, action: #selector(ExpandTransition.gestureRecognizeDidUpdate(_:)))
     }
     
     override func startInteractiveTransition(transitionContext: UIViewControllerContextTransitioning) {
@@ -30,6 +30,7 @@ class ExpandTransition: UIPercentDrivenInteractiveTransition {
         let transitionContainerView = transitionContext?.containerView()
         if transitionContainerView != nil {
             var progress =  recognizer.translationInView(transitionContainerView).x / transitionContainerView!.bounds.width
+            print("progress = \(progress)")
             progress = min(1.0, max(0.0, progress))
             switch recognizer.state {
             case .Began: break
@@ -41,7 +42,8 @@ class ExpandTransition: UIPercentDrivenInteractiveTransition {
                 else {
                     self.cancelInteractiveTransition()
                 }
-            default: self.cancelInteractiveTransition()
+            default:
+                self.cancelInteractiveTransition()
             }
         }
        

@@ -40,6 +40,8 @@ class NavigationPopAnimation: NSObject, UIViewControllerAnimatedTransitioning {
             //此时截图和cell的image已经一样大了，就删除视觉上的snapshot
             imageSnapshot.removeFromSuperview()
             cell?.imageView?.hidden = false
+            //这句话不写，当手势交互的时候，先返回后取消返回会发现SecondController的图片不见了。因为即使最后交互取消了，这句话仍然是执行了。
+            fromController.imageView.hidden = false
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         }
         

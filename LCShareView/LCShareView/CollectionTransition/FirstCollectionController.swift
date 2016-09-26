@@ -29,10 +29,11 @@ class FirstCollectionController: UIViewController {
     //这里必须写成成员变量，不然会被释放掉
     private var  navDelegate = NavIntertivityTransitionDelegate(gestureRecognizer: nil)
     
+    //navigationController是共有的，离开页面后记得置空
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         //将自己设置为naviagation controller 的代理，以便于做转场动画
-        navigationController?.delegate = self
+        navigationController?.delegate = navDelegate
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -54,8 +55,8 @@ class FirstCollectionController: UIViewController {
             make.bottom.equalTo(0)
         }
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(InteractivityFirstController.animationAction(_:)))
-        navigationController?.delegate = navDelegate
     }
+    
     func animationAction(sender: AnyObject) {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
