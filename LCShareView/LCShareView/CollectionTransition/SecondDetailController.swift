@@ -31,8 +31,9 @@ class SecondDetailController: UIViewController {
         gestureRecognizer.edges = .Left
         return gestureRecognizer
     }()
-    var transition: ExpandTransition?
-    
+//    private var transition: ExpandTransition?
+    private var  navDelegate = NavIntertivityTransitionDelegate(gestureRecognizer: nil)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,22 +42,20 @@ class SecondDetailController: UIViewController {
         view.addSubview(overviewLabel)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(InteractivityFirstController.animationAction(_:)))
         view.addGestureRecognizer(navTransitionRecognizer)
-        transition = ExpandTransition(gestureRecognizer: navTransitionRecognizer)
-//        navigationController?.delegate = self
-        navigationController?.delegate = NavIntertivityTransitionDelegate(gestureRecognizer: navTransitionRecognizer)
-
+//        transition = ExpandTransition(gestureRecognizer: navTransitionRecognizer)
+        navigationController?.delegate = navDelegate
     }
 
     
     func animationAction(gestureRecongizer: UIScreenEdgePanGestureRecognizer) {
         
-        if let transitionDelegate = transitioningDelegate as? NavIntertivityTransitionDelegate {
-            if gestureRecongizer.isKindOfClass(UIGestureRecognizer) {
-                transitionDelegate.gestureRecognizer = navTransitionRecognizer
-            } else {
-                transitionDelegate.gestureRecognizer = nil
-            }
-        }
+//        if gestureRecongizer.isKindOfClass(UIGestureRecognizer) {
+//            navDelegate.gestureRecognizer = navTransitionRecognizer
+//        } else {
+//            navDelegate.gestureRecognizer = nil
+//        }
+        
+        //这句话开始后执行转场动画
         navigationController?.popViewControllerAnimated(true)
     }
 }

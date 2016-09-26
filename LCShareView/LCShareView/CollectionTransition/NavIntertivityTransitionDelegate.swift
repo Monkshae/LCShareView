@@ -12,42 +12,26 @@ class NavIntertivityTransitionDelegate: NSObject, UINavigationControllerDelegate
 
     var gestureRecognizer: UIScreenEdgePanGestureRecognizer? = nil
 
-    init(gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+    init(gestureRecognizer: UIScreenEdgePanGestureRecognizer?) {
         self.gestureRecognizer = gestureRecognizer
     }
     
-    //用于实现交互式动画
-//    func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-//        if let gestureRecognizer = self.gestureRecognizer {
-//            return ExpandTransition(gestureRecognizer: gestureRecognizer)
-//        }
-//        return nil
-//    }
-//    
-//    func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-//        if let gestureRecognizer = self.gestureRecognizer {
-//            return ExpandTransition(gestureRecognizer: gestureRecognizer)
-//        }
-//        return nil
-//    }
-    
-    
-    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
-
-    }
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if fromVC == self && toVC is FirstCollectionController {
-            return  NavigationPopAnimation()
-        }else {
+        if fromVC is FirstCollectionController && operation == .Push  {
+            return NavigationPushAnimator()
+        } else if operation == .Pop && fromVC is SecondDetailController {
+            return NavigationPopAnimation()
+        } else {
             return nil
         }
     }
     
-    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        
-        return    ExpandTransition(gestureRecognizer: gestureRecognizer)
-        
-    }
+    
+//    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+//        
+//        return    ExpandTransition(gestureRecognizer: gestureRecognizer)
+//        
+//    }
     
 }

@@ -65,38 +65,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LCShareView/CollectionTransition/ExpandTransition.swift"
-            timestampString = "496316908.991312"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "startInteractiveTransition(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LCShareView/CollectionTransition/ExpandTransition.swift"
-            timestampString = "496402313.393124"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "gestureRecognizeDidUpdate(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "LCShareView/Interactivity/InteractivityTransitionDelegate.swift"
             timestampString = "496402650.126336"
             startingColumnNumber = "9223372036854775807"
@@ -129,13 +97,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LCShareView/CollectionTransition/SecondDetailController.swift"
-            timestampString = "496407491.004006"
+            filePath = "LCShareView/CollectionTransition/ExpandTransition.swift"
+            timestampString = "496575251.969431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "animationAction(_:)"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "startInteractiveTransition(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -145,13 +113,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LCShareView/CollectionTransition/NavIntertivityTransitionDelegate.swift"
-            timestampString = "496408399.792559"
+            filePath = "LCShareView/CollectionTransition/ExpandTransition.swift"
+            timestampString = "496575255.41301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "navigationController(_:animationControllerForOperation:fromViewController:toViewController:)"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "gestureRecognizeDidUpdate(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -161,29 +129,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LCShareView/CollectionTransition/NavIntertivityTransitionDelegate.swift"
-            timestampString = "496408399.792559"
+            filePath = "LCShareView/CollectionTransition/ExpandTransition.swift"
+            timestampString = "496575392.386369"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "navigationController(_:interactionControllerForAnimationController:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LCShareView/CollectionTransition/NavIntertivityTransitionDelegate.swift"
-            timestampString = "496411654.390275"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "navigationController(_:willShowViewController:animated:)"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "init(gestureRecognizer:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

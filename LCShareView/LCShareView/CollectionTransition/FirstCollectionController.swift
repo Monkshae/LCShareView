@@ -26,7 +26,8 @@ class FirstCollectionController: UIViewController {
     }()
     
     lazy var things = Thing.exampleThings()
-    
+    //这里必须写成成员变量，不然会被释放掉
+    private var  navDelegate = NavIntertivityTransitionDelegate(gestureRecognizer: nil)
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -53,8 +54,7 @@ class FirstCollectionController: UIViewController {
             make.bottom.equalTo(0)
         }
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(InteractivityFirstController.animationAction(_:)))
-        
-//        transitioningDelegate = NavIntertivityTransitionDelegate()
+        navigationController?.delegate = navDelegate
     }
     func animationAction(sender: AnyObject) {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
