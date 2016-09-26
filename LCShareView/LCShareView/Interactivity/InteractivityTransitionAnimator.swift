@@ -13,7 +13,8 @@ class InteractivityTransitionAnimator: NSObject,UIViewControllerAnimatedTransiti
     //用来判断方向的
     var targetEdge:  UIRectEdge = .None
     init(targetEdge: UIRectEdge) {
-        super.init()
+// 当我们重写一个类的构造方法时, 系统内部会悄悄的帮我们调用super.init(),以下这一句代码, 能不写就不写
+//        super.init()
         self.targetEdge = targetEdge
     }
     

@@ -10,7 +10,11 @@ import UIKit
 
 class InteractivityFirstController: UIViewController {
     
-    lazy var secondController: InteractivitySecondController = InteractivitySecondController()
+    lazy var secondController: InteractivitySecondController = {
+        $0.modalPresentationStyle = .FullScreen
+        return $0
+    }(InteractivitySecondController())
+    
     lazy var trasitionDelegate: InteractivityTransitionDelegate = InteractivityTransitionDelegate()
     lazy var trasitionRecognizer: UIScreenEdgePanGestureRecognizer = UIScreenEdgePanGestureRecognizer.init(target: self, action: #selector(InteractivityFirstController.interactiveTransitionRecognizerAction(_:)))
     override func viewDidLoad() {
@@ -22,7 +26,6 @@ class InteractivityFirstController: UIViewController {
         
         // 设置动画代理
         secondController.transitioningDelegate = trasitionDelegate
-        secondController.modalPresentationStyle = .FullScreen
     }
 
     

@@ -33,19 +33,6 @@ class SecondDetailController: UIViewController {
     }()
     var transition: ExpandTransition?
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        //将自己设置为naviagation controller 的代理，以便于做转场动画
-        navigationController?.delegate = self
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        //离开页面后将delegate置空
-        if navigationController?.delegate != nil {
-            navigationController?.delegate = nil
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +42,8 @@ class SecondDetailController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(InteractivityFirstController.animationAction(_:)))
         view.addGestureRecognizer(navTransitionRecognizer)
         transition = ExpandTransition(gestureRecognizer: navTransitionRecognizer)
+//        navigationController?.delegate = self
+        navigationController?.delegate = NavIntertivityTransitionDelegate(gestureRecognizer: navTransitionRecognizer)
 
     }
 
@@ -72,24 +61,24 @@ class SecondDetailController: UIViewController {
     }
 }
 
-
-extension SecondDetailController: UINavigationControllerDelegate {
-    
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if fromVC == self && toVC is FirstCollectionController {
-            return  NavigationPopAnimation()
-        }else {
-            return nil
-        }
-    }
-    
-    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        
-        if transitioningDelegate as? NavIntertivityTransitionDelegate != nil {
-            return transition
-        } else{
-            return nil
-        }
-
-    }
-}
+//
+//extension SecondDetailController: UINavigationControllerDelegate {
+//    
+//    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        if fromVC == self && toVC is FirstCollectionController {
+//            return  NavigationPopAnimation()
+//        }else {
+//            return nil
+//        }
+//    }
+//    
+//    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+//        
+//        if transitioningDelegate as? NavIntertivityTransitionDelegate != nil {
+//            return transition
+//        } else{
+//            return nil
+//        }
+//
+//    }
+//}

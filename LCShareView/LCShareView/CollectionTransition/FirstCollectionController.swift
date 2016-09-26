@@ -54,7 +54,7 @@ class FirstCollectionController: UIViewController {
         }
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(InteractivityFirstController.animationAction(_:)))
         
-        transitioningDelegate = NavIntertivityTransitionDelegate()
+//        transitioningDelegate = NavIntertivityTransitionDelegate()
     }
     func animationAction(sender: AnyObject) {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)

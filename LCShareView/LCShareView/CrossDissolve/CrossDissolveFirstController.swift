@@ -11,12 +11,11 @@ import UIKit
 class CrossDissolveFirstController: UIViewController {
 
     lazy var secondController:CrossDissolveSecondController = {
-        let  controller =  CrossDissolveSecondController()
-        controller.modalPresentationStyle = .FullScreen
+        $0.modalPresentationStyle = .FullScreen
         //设置转场动画代理
-        controller.transitioningDelegate = self
-        return controller
-    }()
+        $0.transitioningDelegate = self
+        return $0
+    }(CrossDissolveSecondController())
     
     override func viewDidLoad() {
         super.viewDidLoad()
