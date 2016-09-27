@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class NavIntertivityTransitionDelegate: NSObject, UINavigationControllerDelegate {
 
     var gestureRecognizer: UIScreenEdgePanGestureRecognizer? = nil
@@ -17,6 +19,7 @@ class NavIntertivityTransitionDelegate: NSObject, UINavigationControllerDelegate
     }
     
     
+    //push 和pop 转场动画
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if fromVC is FirstCollectionController && operation == .Push  {
             return NavigationPushAnimator()
@@ -28,6 +31,7 @@ class NavIntertivityTransitionDelegate: NSObject, UINavigationControllerDelegate
     }
     
     
+    //交互动画
     func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         //push动画没有手势，这里的就是个demo，不是严谨的判断
         if gestureRecognizer != nil {

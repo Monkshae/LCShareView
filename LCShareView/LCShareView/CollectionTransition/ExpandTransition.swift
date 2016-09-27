@@ -9,6 +9,7 @@
 
 import UIKit
 
+//手指滑动返回动画
 class ExpandTransition: UIPercentDrivenInteractiveTransition {
     
     var transitionContext: UIViewControllerContextTransitioning?

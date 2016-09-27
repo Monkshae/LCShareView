@@ -31,7 +31,6 @@ class SecondDetailController: UIViewController {
         gestureRecognizer.edges = .Left
         return gestureRecognizer
     }()
-//    private var transition: ExpandTransition?
     private var  navDelegate = NavIntertivityTransitionDelegate(gestureRecognizer: nil)
 
     
@@ -77,5 +76,9 @@ class SecondDetailController: UIViewController {
     
         //这句话开始后执行转场动画
         navigationController?.popViewControllerAnimated(true)
+    }
+    
+    deinit{
+        print("哈哈哈")
     }
 }

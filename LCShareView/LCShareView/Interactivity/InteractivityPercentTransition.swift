@@ -37,6 +37,7 @@ class InteractivityPercentTransition: UIPercentDrivenInteractiveTransition {
             }
             else {
                 self.cancelInteractiveTransition()
+                UIColor.purpleColor()
             }
         default: self.cancelInteractiveTransition()
         }
