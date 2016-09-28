@@ -13,10 +13,10 @@ import UIKit
 class CustomPresentationController: UIPresentationController {
 
     
-    override init(presentedViewController: UIViewController, presentingViewController: UIViewController) {
-        super.init(presentedViewController: presentedViewController, presentingViewController: presentingViewController)
-        presentedViewController.modalPresentationStyle = .Custom
-    }
+//    override init(presentedViewController: UIViewController, presentingViewController: UIViewController) {
+//        super.init(presentedViewController: presentedViewController, presentingViewController: presentingViewController)
+//        presentedViewController.modalPresentationStyle = .Custom
+//    }
     
     //alpha为0.5的蒙版， UIPresentationController 的子类是负责「被呈现」及「负责呈现」的 controller 以外的 controller，这里主要就是半透明的蒙版
     lazy var dimmingView: UIView = {

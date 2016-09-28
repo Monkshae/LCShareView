@@ -13,10 +13,12 @@ class CustomFirstController: UIViewController {
     //这是toViewController
     lazy var secondController: CustomSecondController = CustomSecondController()
     
+    //这句话是必须的，如果使用了UIPresentationController的话
     lazy var customPresentationController: CustomPresentationController = CustomPresentationController(presentedViewController: self.secondController, presentingViewController: self)
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        secondController.modalPresentationStyle = .Custom
         secondController.transitioningDelegate = customPresentationController
     }
     
