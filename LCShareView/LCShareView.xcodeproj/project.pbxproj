@@ -150,13 +150,6 @@
 			path = CollectionTransition;
 			sourceTree = "<group>";
 		};
-		D920877C1D9BCBD300D01A50 /* TabTransation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = TabTransation;
-			sourceTree = "<group>";
-		};
 		D9F4A0101D8EAB3800280A2E = {
 			isa = PBXGroup;
 			children = (
@@ -180,7 +173,6 @@
 			children = (
 				D9F4A01C1D8EAB3800280A2E /* AppDelegate.swift */,
 				D9F4A01E1D8EAB3800280A2E /* ViewController.swift */,
-				D920877C1D9BCBD300D01A50 /* TabTransation */,
 				D91339C71D900D38005EBD24 /* CrossDissolve */,
 				D91339D01D911E5F005EBD24 /* Interactivity */,
 				D91339DB1D914B0E005EBD24 /* presationController */,

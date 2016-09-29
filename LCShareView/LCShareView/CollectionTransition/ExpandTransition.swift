@@ -27,9 +27,9 @@ class ExpandTransition: UIPercentDrivenInteractiveTransition {
     
     
     func gestureRecognizeDidUpdate(recognizer: UIScreenEdgePanGestureRecognizer) {
-        //获取到的是手指移动后，在相对于self.view坐标中的偏移量
         let transitionContainerView = transitionContext?.containerView()
         if transitionContainerView != nil {
+            //获取到的是手指移动后，在相对于self.view坐标中的偏移量
             var progress =  recognizer.translationInView(transitionContainerView).x / transitionContainerView!.bounds.width
             print("progress = \(progress)")
             progress = min(1.0, max(0.0, progress))
