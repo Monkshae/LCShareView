@@ -20,31 +20,31 @@ class ExpandTransition: UIPercentDrivenInteractiveTransition {
         self.gestureRecognizer?.addTarget(self, action: #selector(ExpandTransition.gestureRecognizeDidUpdate(_:)))
     }
     
-    override func startInteractiveTransition(transitionContext: UIViewControllerContextTransitioning) {
+    override func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
         super.startInteractiveTransition(transitionContext)
         self.transitionContext = transitionContext
     }
     
     
-    func gestureRecognizeDidUpdate(recognizer: UIScreenEdgePanGestureRecognizer) {
-        let transitionContainerView = transitionContext?.containerView()
+    func gestureRecognizeDidUpdate(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+        let transitionContainerView = transitionContext?.containerView
         if transitionContainerView != nil {
             //获取到的是手指移动后，在相对于self.view坐标中的偏移量
-            var progress =  recognizer.translationInView(transitionContainerView).x / transitionContainerView!.bounds.width
+            var progress =  recognizer.translation(in: transitionContainerView).x / transitionContainerView!.bounds.width
             print("progress = \(progress)")
             progress = min(1.0, max(0.0, progress))
             switch recognizer.state {
-            case .Began: break
-            case .Changed: self.updateInteractiveTransition(progress)  //手势滑动，更新百分比
-            case .Ended:
+            case .began: break
+            case .changed: self.update(progress)  //手势滑动，更新百分比
+            case .ended:
                 if progress >= 0.5 {
-                    self.finishInteractiveTransition()
+                    self.finish()
                 }
                 else {
-                    self.cancelInteractiveTransition()
+                    self.cancel()
                 }
             default:
-                self.cancelInteractiveTransition()
+                self.cancel()
             }
         }
        

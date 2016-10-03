@@ -16,10 +16,10 @@ class ThingCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = UIColor.whiteColor()
+        contentView.backgroundColor = UIColor.white
         imageView = UIImageView()
         contentView.addSubview(imageView!)
-        imageView?.snp_makeConstraints(closure: { (make) in
+        imageView?.snp_makeConstraints({ (make) in
             make.top.equalTo(contentView.snp_top)
             make.width.equalTo(150)
             make.height.equalTo(150)
@@ -29,7 +29,7 @@ class ThingCell: UICollectionViewCell {
         titleLabel?.text = "哈哈"
         titleLabel?.font = UIFont(name: "Helvetica", size: 20)
         contentView.addSubview(titleLabel!)
-        titleLabel?.snp_makeConstraints(closure: { (make) in
+        titleLabel?.snp_makeConstraints({ (make) in
             make.top.equalTo(imageView!.snp_bottom).offset(15)
             make.centerX.equalTo(contentView)
             make.bottom.equalTo(contentView.snp_bottom)

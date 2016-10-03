@@ -10,40 +10,40 @@ import UIKit
 
 class NavigationPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let fromController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! FirstCollectionController
-        let toController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! SecondDetailController
-        let toView = transitionContext.viewForKey(UITransitionContextToViewKey)
-        let containerView = transitionContext.containerView()
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let fromController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! FirstCollectionController
+        let toController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! SecondDetailController
+        let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)
+        let containerView = transitionContext.containerView
         
-        let cell = fromController.collectionView .cellForItemAtIndexPath((fromController.collectionView.indexPathsForSelectedItems()?.first)!) as! ThingCell
-        let cellImageSnapshot = cell.imageView?.snapshotViewAfterScreenUpdates(false)
-        cellImageSnapshot?.frame = (containerView?.convertRect((cell.imageView?.frame)!, fromView: cell.imageView!.superview))!
+        let cell = fromController.collectionView .cellForItem(at: (fromController.collectionView.indexPathsForSelectedItems?.first)!) as! ThingCell
+        let cellImageSnapshot = cell.imageView?.snapshotView(afterScreenUpdates: false)
+        cellImageSnapshot?.frame = (containerView.convert((cell.imageView?.frame)!, from: cell.imageView!.superview))
         
-        toView?.frame = transitionContext.finalFrameForViewController(toController)
+        toView?.frame = transitionContext.finalFrame(for: toController)
         toView?.alpha = 0.0
-        toController.imageView.hidden = true
-        containerView?.addSubview(toView!)
-        containerView?.addSubview(cellImageSnapshot!)
+        toController.imageView.isHidden = true
+        containerView.addSubview(toView!)
+        containerView.addSubview(cellImageSnapshot!)
         
-        UIView.animateWithDuration(transitionDuration(transitionContext), animations: { 
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: { 
             toView?.alpha = 1.0
 //            let frame = containerView?.convertRect(toController.imageView.frame, fromView: toController.view)
 //            cellImageSnapshot?.frame = toController.imageView.frame
              //这里有疑问
-             let frame = containerView?.convertRect(toController.imageView.frame, fromView: toController.view)
-            cellImageSnapshot?.frame = frame!
-        }) { (finished: Bool) in
+             let frame = containerView.convert(toController.imageView.frame, from: toController.view)
+            cellImageSnapshot?.frame = frame
+        }, completion: { (finished: Bool) in
             
-            toController.imageView.hidden = false
+            toController.imageView.isHidden = false
             //pop前提前设置显示为yes
-            cell.hidden = false
+            cell.isHidden = false
             cellImageSnapshot?.removeFromSuperview()
-            transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
-        }
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        }) 
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 class InteractivityFirstController: UIViewController {
     
     lazy var secondController: InteractivitySecondController = {
-        $0.modalPresentationStyle = .FullScreen
+        $0.modalPresentationStyle = .fullScreen
         return $0
     }(InteractivitySecondController())
     
@@ -21,7 +21,7 @@ class InteractivityFirstController: UIViewController {
         super.viewDidLoad()
         setupView()
         // 添加滑动交互手势
-        trasitionRecognizer.edges = .Right
+        trasitionRecognizer.edges = .right
         self.view.addGestureRecognizer(trasitionRecognizer)
         
         // 设置动画代理
@@ -30,9 +30,9 @@ class InteractivityFirstController: UIViewController {
 
     
     func setupView()  {
-        view.backgroundColor = UIColor.purpleColor()
+        view.backgroundColor = UIColor.purple
         navigationItem.title = "交互式动画"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(InteractivityFirstController.leftBarButtonDidClicked))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(InteractivityFirstController.leftBarButtonDidClicked))
         let label = UILabel()
         label.text = "From"
         label.font = UIFont(name: "Helvetica", size: 50)
@@ -44,9 +44,9 @@ class InteractivityFirstController: UIViewController {
         }
         
         let button = UIButton()
-        button.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        button.setTitle("present", forState: .Normal)
-        button.addTarget(self, action: #selector(InteractivityFirstController.animationAction(_:)), forControlEvents: .TouchUpInside)
+        button.setTitleColor(UIColor.blue, for: UIControlState())
+        button.setTitle("present", for: UIControlState())
+        button.addTarget(self, action: #selector(InteractivityFirstController.animationAction(_:)), for: .touchUpInside)
         view.addSubview(button)
         button.snp_makeConstraints { (make) -> Void in
             make.centerX.equalTo(view)
@@ -58,26 +58,26 @@ class InteractivityFirstController: UIViewController {
     
     
     func leftBarButtonDidClicked() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     //在开始触发手势时，调用
-    func interactiveTransitionRecognizerAction(gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+    func interactiveTransitionRecognizerAction(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
        
-        if gestureRecognizer.state == .Began {
+        if gestureRecognizer.state == .began {
             animationAction(gestureRecognizer)
         }
     }
     
-    func animationAction(sender: AnyObject) {
-        if sender.isKindOfClass(UIGestureRecognizer) {
+    func animationAction(_ sender: AnyObject) {
+        if sender is UIGestureRecognizer {
             trasitionDelegate.gestureRecognizer = trasitionRecognizer
         } else {
             trasitionDelegate.gestureRecognizer = nil
         }
         //设置targetEdge为右边，也就是检测从右滑动的手势
-        trasitionDelegate.targetEdge = .Right
-        self.presentViewController(secondController, animated: true, completion: nil)
+        trasitionDelegate.targetEdge = .right
+        self.present(secondController, animated: true, completion: nil)
     }
     
 }

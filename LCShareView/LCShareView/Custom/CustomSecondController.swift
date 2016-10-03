@@ -22,7 +22,7 @@ class CustomSecondController: UIViewController {
         /// 创建label
         let label = UILabel()
         label.text = "To"
-        label.textAlignment = .Center
+        label.textAlignment = .center
         label.font = UIFont(name: "Helvetica", size: 60)
         view.addSubview(label)
         label.snp_makeConstraints { (make) -> Void in
@@ -37,13 +37,13 @@ class CustomSecondController: UIViewController {
             make.left.equalTo(view).offset(20)
             make.height.equalTo(30)
         }
-        slider.addTarget(self, action: #selector(CustomSecondController.sliderValueChange(_:)), forControlEvents: .ValueChanged)
+        slider.addTarget(self, action: #selector(CustomSecondController.sliderValueChange(_:)), for: .valueChanged)
         
         /// 创建button
         let button = UIButton()
-        button.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        button.setTitle("Dismiss", forState: .Normal)
-        button.addTarget(self, action: #selector(CustomSecondController.buttonDidClicked), forControlEvents: .TouchUpInside)
+        button.setTitleColor(UIColor.blue, for: UIControlState())
+        button.setTitle("Dismiss", for: UIControlState())
+        button.addTarget(self, action: #selector(CustomSecondController.buttonDidClicked), for: .touchUpInside)
         view.addSubview(button)
         button.snp_makeConstraints { (make) -> Void in
             make.bottom.equalTo(view).offset(-20)
@@ -54,24 +54,24 @@ class CustomSecondController: UIViewController {
     }
 
     
-    override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.willTransitionToTraitCollection(newCollection, withTransitionCoordinator: coordinator)
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
         self.updatePreferredContentSizeWithTraitCollection(newCollection)
     }
     
-    func updatePreferredContentSizeWithTraitCollection(traitCollection: UITraitCollection) {
+    func updatePreferredContentSizeWithTraitCollection(_ traitCollection: UITraitCollection) {
         //这句主要是设置 presentedView的大小，缺少这一句，无法显示presentView
-        self.preferredContentSize = CGSizeMake(self.view.bounds.size.width, traitCollection.verticalSizeClass == .Compact ? 270 : 420)
+        self.preferredContentSize = CGSize(width: self.view.bounds.size.width, height: traitCollection.verticalSizeClass == .compact ? 270 : 420)
         slider.maximumValue = Float(self.preferredContentSize.height)
         slider.minimumValue = 220
         slider.value = self.slider.maximumValue
     }
     
     func buttonDidClicked() {
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    func sliderValueChange(sender: UISlider) {
-        self.preferredContentSize = CGSizeMake(self.view.bounds.size.width, CGFloat(sender.value))
+    func sliderValueChange(_ sender: UISlider) {
+        self.preferredContentSize = CGSize(width: self.view.bounds.size.width, height: CGFloat(sender.value))
     }
 }

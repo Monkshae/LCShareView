@@ -11,15 +11,15 @@ import UIKit
 class CrossDissolveSecondController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.purpleColor()
+        view.backgroundColor = UIColor.purple
         setupView()
     }
     
     func setupView() {
-        let button = UIButton(type: .Custom)
-        button.setTitle("dismiss", forState: .Normal)
-        button.backgroundColor = UIColor.redColor()
-        button.addTarget(self, action: #selector(CrossDissolveSecondController.aniamtionAction), forControlEvents: .TouchUpInside)
+        let button = UIButton(type: .custom)
+        button.setTitle("dismiss", for: UIControlState())
+        button.backgroundColor = UIColor.red
+        button.addTarget(self, action: #selector(CrossDissolveSecondController.aniamtionAction), for: .touchUpInside)
         view.addSubview(button)
         button.snp_makeConstraints { (make) in
             make.center.equalTo(view)
@@ -29,6 +29,6 @@ class CrossDissolveSecondController: UIViewController {
     }
     
     func aniamtionAction() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }

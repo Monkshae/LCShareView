@@ -20,10 +20,10 @@ class NavIntertivityTransitionDelegate: NSObject, UINavigationControllerDelegate
     
     
     //push 和pop 转场动画
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if fromVC is FirstCollectionController && operation == .Push  {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if fromVC is FirstCollectionController && operation == .push  {
             return NavigationPushAnimator()
-        } else if operation == .Pop && fromVC is SecondDetailController {
+        } else if operation == .pop && fromVC is SecondDetailController {
             return NavigationPopAnimation()
         } else {
             return nil
@@ -32,7 +32,7 @@ class NavIntertivityTransitionDelegate: NSObject, UINavigationControllerDelegate
     
     
     //交互动画
-    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         //push动画没有手势，这里的就是个demo，不是严谨的判断
         if gestureRecognizer != nil {
             return  ExpandTransition(gestureRecognizer: gestureRecognizer)

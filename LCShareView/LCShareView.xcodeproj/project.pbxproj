@@ -221,6 +221,7 @@
 					D9F4A0181D8EAB3800280A2E = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = DGT9C327YY;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -445,6 +446,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Lee.LCShareView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -460,6 +462,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Lee.LCShareView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

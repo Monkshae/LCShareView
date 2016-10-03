@@ -10,39 +10,39 @@ import UIKit
 
 class CustomPresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        if let isAnimated = transitionContext?.isAnimated() {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        if let isAnimated = transitionContext?.isAnimated {
             return isAnimated ? 0.35 : 0
         }
         return 0
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
-        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-        let containerView = transitionContext.containerView()
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
+        let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
+        let containerView = transitionContext.containerView
         
-        let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)
-        let toView = transitionContext.viewForKey(UITransitionContextToViewKey)
+        let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from)
+        let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)
         let isPresenting = (toViewController?.presentingViewController == fromViewController)
         
-        var fromViewFinalFrame = transitionContext.finalFrameForViewController(fromViewController!)
-        var toViewInitialFrame = transitionContext.initialFrameForViewController(toViewController!)
-        let toViewFinalFrame = transitionContext.finalFrameForViewController(toViewController!)
+        var fromViewFinalFrame = transitionContext.finalFrame(for: fromViewController!)
+        var toViewInitialFrame = transitionContext.initialFrame(for: toViewController!)
+        let toViewFinalFrame = transitionContext.finalFrame(for: toViewController!)
         if toView != nil {
-            containerView!.addSubview(toView!)
+            containerView.addSubview(toView!)
         }
         
         if isPresenting {
-            toViewInitialFrame.origin = CGPointMake(CGRectGetMinX(containerView!.bounds), CGRectGetMaxY(containerView!.bounds))
+            toViewInitialFrame.origin = CGPoint(x: containerView.bounds.minX, y: containerView.bounds.maxY)
             toViewInitialFrame.size = toViewFinalFrame.size
             toView?.frame = toViewInitialFrame
         } else {
-            fromViewFinalFrame = CGRectOffset(fromView!.frame, 0, CGRectGetHeight(fromView!.frame))
+            fromViewFinalFrame = fromView!.frame.offsetBy(dx: 0, dy: fromView!.frame.height)
         }
         
-        let transitionDuration = self.transitionDuration(transitionContext)
-        UIView.animateWithDuration(transitionDuration, animations: {
+        let transitionDuration = self.transitionDuration(using: transitionContext)
+        UIView.animate(withDuration: transitionDuration, animations: {
             if isPresenting {
                 toView?.frame = toViewFinalFrame
             }
@@ -50,10 +50,10 @@ class CustomPresentationAnimator: NSObject, UIViewControllerAnimatedTransitionin
                 fromView?.frame = fromViewFinalFrame
             }
             
-        }) { (finished: Bool) -> Void in
-            let wasCancelled = transitionContext.transitionWasCancelled()
+        }, completion: { (finished: Bool) -> Void in
+            let wasCancelled = transitionContext.transitionWasCancelled
             transitionContext.completeTransition(!wasCancelled)
-        }
+        }) 
 
     }
 }

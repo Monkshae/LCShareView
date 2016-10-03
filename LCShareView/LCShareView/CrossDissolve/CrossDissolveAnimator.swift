@@ -10,28 +10,28 @@ import UIKit
 
 class CrossDissolveAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.35
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let fromController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
-        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-        let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)
-        let toView = transitionContext.viewForKey(UITransitionContextToViewKey)
-        let containerView = transitionContext.containerView()
-        fromView?.frame = transitionContext.initialFrameForViewController(fromController!)
-        toView?.frame = transitionContext.finalFrameForViewController(toViewController!)
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let fromController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
+        let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
+        let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from)
+        let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)
+        let containerView = transitionContext.containerView
+        fromView?.frame = transitionContext.initialFrame(for: fromController!)
+        toView?.frame = transitionContext.finalFrame(for: toViewController!)
         fromView?.alpha = 1.0
         toView?.alpha = 0.0
-        containerView?.addSubview(toView!)
+        containerView.addSubview(toView!)
         
-        UIView.animateWithDuration(transitionDuration(transitionContext), animations: { 
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: { 
             fromView?.alpha = 0.0
             toView?.alpha = 1.0
-        }) { (finished) in
-            let cancelled = transitionContext.transitionWasCancelled()
+        }, completion: { (finished) in
+            let cancelled = transitionContext.transitionWasCancelled
             transitionContext.completeTransition(!cancelled)
-        }
+        }) 
     }
 }

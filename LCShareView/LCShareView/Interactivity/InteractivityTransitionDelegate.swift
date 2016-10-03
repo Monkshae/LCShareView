@@ -12,26 +12,26 @@ import UIKit
 class InteractivityTransitionDelegate: NSObject,UIViewControllerTransitioningDelegate {
     
     var gestureRecognizer: UIScreenEdgePanGestureRecognizer? = nil
-    var targetEdge: UIRectEdge = .None
+    var targetEdge: UIRectEdge = UIRectEdge()
     
     //普通的非交互过度动画
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return InteractivityTransitionAnimator(targetEdge: targetEdge)
     }
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return InteractivityTransitionAnimator(targetEdge: targetEdge)
     }
     
     //用于实现交互式动画
-    func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         if let gestrueRecognizer = self.gestureRecognizer {
             return InteractivityPercentTransition(gestureRecognizer: gestrueRecognizer, edgeForDragging: targetEdge)
         }
         return nil
     }
     
-    func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         if let gestrueRecognizer = self.gestureRecognizer {
             return InteractivityPercentTransition(gestureRecognizer: gestrueRecognizer, edgeForDragging: targetEdge)
         }

@@ -12,10 +12,10 @@ import SnapKit
 class ViewController: UIViewController {
 
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: UIScreen.mainScreen().bounds, style: .Plain)
+        let tableView = UITableView(frame: UIScreen.main.bounds, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         return tableView
     }()
     let titleArray = ["淡入淡出", "滑动", "自定义动画","CollectionViewCell渐变"]
@@ -33,22 +33,22 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titleArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let tableViewCell = UITableViewCell(style: .Default, reuseIdentifier: String(UITableViewCell))
-        tableViewCell.textLabel?.text = titleArray[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let tableViewCell = UITableViewCell(style: .default, reuseIdentifier: String(describing: UITableViewCell()))
+        tableViewCell.textLabel?.text = titleArray[(indexPath as NSIndexPath).row]
         return tableViewCell
     }
 }
 
 extension ViewController: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let nav: UINavigationController
-        switch indexPath.row {
+        switch (indexPath as NSIndexPath).row {
         case 0: nav = UINavigationController(rootViewController: CrossDissolveFirstController())
         case 1: nav = UINavigationController(rootViewController: InteractivityFirstController())
         case 2: nav = UINavigationController(rootViewController: CustomFirstController())
@@ -57,7 +57,7 @@ extension ViewController: UITableViewDelegate {
             nav = UINavigationController()
             break
         }
-        self.presentViewController(nav, animated: true, completion: nil)
+        self.present(nav, animated: true, completion: nil)
     }
     
 
