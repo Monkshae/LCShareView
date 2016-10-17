@@ -48,7 +48,7 @@ class FirstCollectionController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "CollectionViewCell渐变"
         view.addSubview(collectionView)
-        collectionView.snp_makeConstraints { (make) in
+        collectionView.snp.makeConstraints { (make) in
             make.left.equalTo(0)
             make.right.equalTo(0)
             make.top.equalTo(0)

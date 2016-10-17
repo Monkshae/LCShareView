@@ -21,7 +21,7 @@ class CrossDissolveSecondController: UIViewController {
         button.backgroundColor = UIColor.red
         button.addTarget(self, action: #selector(CrossDissolveSecondController.aniamtionAction), for: .touchUpInside)
         view.addSubview(button)
-        button.snp_makeConstraints { (make) in
+        button.snp.makeConstraints { (make) in
             make.center.equalTo(view)
             make.width.equalTo(100)
             make.height.equalTo(50)

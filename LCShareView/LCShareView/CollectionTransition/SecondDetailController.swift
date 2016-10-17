@@ -63,7 +63,7 @@ class SecondDetailController: UIViewController {
     
     
     func didButtonClicked(_ sender: UIButton)  {
-        navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     
@@ -76,7 +76,7 @@ class SecondDetailController: UIViewController {
         }
     
         //这句话开始后执行转场动画
-        navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     deinit{

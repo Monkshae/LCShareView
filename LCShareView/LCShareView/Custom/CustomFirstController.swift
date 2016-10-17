@@ -35,7 +35,7 @@ class CustomFirstController: UIViewController {
         label.text = "From"
         label.font = UIFont(name: "Helvetica", size: 60)
         view.addSubview(label)
-        label.snp_makeConstraints { (make) -> Void in
+        label.snp.makeConstraints { (make) -> Void in
             make.center.equalTo(view)
             make.width.equalTo(150)
             make.height.equalTo(60)
@@ -47,7 +47,7 @@ class CustomFirstController: UIViewController {
         button.setTitle("演示动画", for: UIControlState())
         button.addTarget(self, action: #selector(CustomFirstController.animationButtonDidClicked), for: .touchUpInside)
         view.addSubview(button)
-        button.snp_makeConstraints { (make) -> Void in
+        button.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(view)
             make.width.equalTo(250)
             make.height.equalTo(60)

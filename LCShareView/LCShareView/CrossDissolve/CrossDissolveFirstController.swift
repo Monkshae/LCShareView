@@ -32,7 +32,7 @@ class CrossDissolveFirstController: UIViewController {
         label.text = "From"
         label.font = UIFont(name: "Helvetica", size: 50)
         view.addSubview(label)
-        label.snp_makeConstraints { (make) in
+        label.snp.makeConstraints { (make) in
             make.center.equalTo(view)
             make.width.equalTo(120)
             make.height.equalTo(50)
@@ -42,7 +42,7 @@ class CrossDissolveFirstController: UIViewController {
         button.setTitle("present", for: UIControlState())
         button.addTarget(self, action: #selector(CrossDissolveFirstController.aniamtionAction), for: .touchUpInside)
         view.addSubview(button)
-        button.snp_makeConstraints { (make) in
+        button.snp.makeConstraints { (make) in
             make.centerX.equalTo(view)
             make.width.equalTo(200)
             make.height.equalTo(50)

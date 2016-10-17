@@ -25,14 +25,14 @@ class CustomSecondController: UIViewController {
         label.textAlignment = .center
         label.font = UIFont(name: "Helvetica", size: 60)
         view.addSubview(label)
-        label.snp_makeConstraints { (make) -> Void in
+        label.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(view)
             make.top.equalTo(view)
             make.height.equalTo(144)
         }
         
         view.addSubview(slider)
-        slider.snp_makeConstraints { (make) -> Void in
+        slider.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(view)
             make.left.equalTo(view).offset(20)
             make.height.equalTo(30)
@@ -45,9 +45,9 @@ class CustomSecondController: UIViewController {
         button.setTitle("Dismiss", for: UIControlState())
         button.addTarget(self, action: #selector(CustomSecondController.buttonDidClicked), for: .touchUpInside)
         view.addSubview(button)
-        button.snp_makeConstraints { (make) -> Void in
+        button.snp.makeConstraints { (make) -> Void in
             make.bottom.equalTo(view).offset(-20)
-            make.top.equalTo(slider.snp_bottom).offset(8)
+            make.top.equalTo(slider.snp.bottom).offset(8)
             make.centerX.equalTo(view)
             make.width.equalTo(245)
         }
