@@ -50,6 +50,17 @@ class Person: NSObject {
 //var subStr = str.substringWithRange(Range<String.Index>(start: str.startIndex, end: str.endIndex))
 //print(subStr)
 
-let a = String(describing: Person.self)
-print(a)
+//let a = String(describing: Person.self)
+//print(a)
 
+
+var a = [1, 2]
+a.reserveCapacity(256) // swift 3.0
+a += sequence(first: 3, next: {$0 < 1000 ? ($0 + 3) * 2 : nil})
+a
+
+var i = 1
+repeat {
+    print(i)
+    i = i * 2
+} while i <= 100

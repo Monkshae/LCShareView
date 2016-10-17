@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "自定义跳转动画"
         view.addSubview(tableView)
-        tableView.snp_makeConstraints { (make) -> Void in
+        tableView.snp.makeConstraints { (make) -> Void in
             make.edges.equalTo(view)
         }
     }

@@ -29,6 +29,8 @@
 		D91339EE1D929279005EBD24 /* ExpandTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91339ED1D929279005EBD24 /* ExpandTransition.swift */; };
 		D91339F01D929CAE005EBD24 /* NavigationPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91339EF1D929CAE005EBD24 /* NavigationPushAnimator.swift */; };
 		D91339F21D929CC8005EBD24 /* NavigationPopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91339F11D929CC8005EBD24 /* NavigationPopAnimation.swift */; };
+		D919DE761DAB8DE3005269EE /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = D919DE751DAB8DE3005269EE /* Then.swift */; };
+		D919DE791DAB8E84005269EE /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D919DE781DAB8E84005269EE /* test.swift */; };
 		D9DC81001D952F4E00F1AEBB /* NavIntertivityTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC80FF1D952F4E00F1AEBB /* NavIntertivityTransitionDelegate.swift */; };
 		D9F4A01D1D8EAB3800280A2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4A01C1D8EAB3800280A2E /* AppDelegate.swift */; };
 		D9F4A01F1D8EAB3800280A2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4A01E1D8EAB3800280A2E /* ViewController.swift */; };
@@ -61,6 +63,9 @@
 		D91339ED1D929279005EBD24 /* ExpandTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandTransition.swift; sourceTree = "<group>"; };
 		D91339EF1D929CAE005EBD24 /* NavigationPushAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPushAnimator.swift; sourceTree = "<group>"; };
 		D91339F11D929CC8005EBD24 /* NavigationPopAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPopAnimation.swift; sourceTree = "<group>"; };
+		D919DE751DAB8DE3005269EE /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
+		D919DE771DAB8E5E005269EE /* Then.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Then.h; sourceTree = "<group>"; };
+		D919DE781DAB8E84005269EE /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		D9DC80FF1D952F4E00F1AEBB /* NavIntertivityTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavIntertivityTransitionDelegate.swift; sourceTree = "<group>"; };
 		D9F4A0191D8EAB3800280A2E /* LCShareView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCShareView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F4A01C1D8EAB3800280A2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +158,9 @@
 		D9F4A0101D8EAB3800280A2E = {
 			isa = PBXGroup;
 			children = (
+				D919DE771DAB8E5E005269EE /* Then.h */,
+				D919DE751DAB8DE3005269EE /* Then.swift */,
+				D919DE781DAB8E84005269EE /* test.swift */,
 				D9F4A01B1D8EAB3800280A2E /* LCShareView */,
 				D9F4A01A1D8EAB3800280A2E /* Products */,
 				2ADDDE138E27D6B3D23B1258 /* Pods */,
@@ -313,6 +321,7 @@
 				D91339EC1D929084005EBD24 /* SecondDetailController.swift in Sources */,
 				D91339E11D91526D005EBD24 /* CustomPresentationController.swift in Sources */,
 				D91339DA1D912E88005EBD24 /* InteractivityPercentTransition.swift in Sources */,
+				D919DE761DAB8DE3005269EE /* Then.swift in Sources */,
 				D91339CD1D900D95005EBD24 /* HalfWaySpringAnimator.swift in Sources */,
 				D9F4A01F1D8EAB3800280A2E /* ViewController.swift in Sources */,
 				D91339E31D923F3E005EBD24 /* CustomPresentationAnimator.swift in Sources */,
@@ -326,6 +335,7 @@
 				D91339EA1D927C96005EBD24 /* ThingCell.swift in Sources */,
 				D91339DF1D914B4C005EBD24 /* CustomSecondController.swift in Sources */,
 				D91339CF1D90D2AA005EBD24 /* CrossDissolveAnimator.swift in Sources */,
+				D919DE791DAB8E84005269EE /* test.swift in Sources */,
 				D91339D21D911FA0005EBD24 /* InteractivityFirstController.swift in Sources */,
 				D91339E81D927A9F005EBD24 /* Thing.swift in Sources */,
 				D91339F01D929CAE005EBD24 /* NavigationPushAnimator.swift in Sources */,
