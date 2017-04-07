@@ -31,6 +31,11 @@
 		D91339F21D929CC8005EBD24 /* NavigationPopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91339F11D929CC8005EBD24 /* NavigationPopAnimation.swift */; };
 		D919DE761DAB8DE3005269EE /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = D919DE751DAB8DE3005269EE /* Then.swift */; };
 		D919DE791DAB8E84005269EE /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D919DE781DAB8E84005269EE /* test.swift */; };
+		D99D46391E97AB180074E887 /* PushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D46381E97AB180074E887 /* PushAnimation.swift */; };
+		D99D463B1E97AB9A0074E887 /* PushController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D463A1E97AB9A0074E887 /* PushController.swift */; };
+		D99D463D1E97ABAD0074E887 /* PopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D463C1E97ABAD0074E887 /* PopController.swift */; };
+		D99D463F1E97AF020074E887 /* PopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D463E1E97AF020074E887 /* PopAnimation.swift */; };
+		D99D46411E97AFBF0074E887 /* PushNavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D46401E97AFBF0074E887 /* PushNavigationControllerDelegate.swift */; };
 		D9DC81001D952F4E00F1AEBB /* NavIntertivityTransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC80FF1D952F4E00F1AEBB /* NavIntertivityTransitionDelegate.swift */; };
 		D9F4A01D1D8EAB3800280A2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4A01C1D8EAB3800280A2E /* AppDelegate.swift */; };
 		D9F4A01F1D8EAB3800280A2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F4A01E1D8EAB3800280A2E /* ViewController.swift */; };
@@ -66,6 +71,11 @@
 		D919DE751DAB8DE3005269EE /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		D919DE771DAB8E5E005269EE /* Then.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Then.h; sourceTree = "<group>"; };
 		D919DE781DAB8E84005269EE /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		D99D46381E97AB180074E887 /* PushAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushAnimation.swift; sourceTree = "<group>"; };
+		D99D463A1E97AB9A0074E887 /* PushController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushController.swift; sourceTree = "<group>"; };
+		D99D463C1E97ABAD0074E887 /* PopController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopController.swift; sourceTree = "<group>"; };
+		D99D463E1E97AF020074E887 /* PopAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimation.swift; sourceTree = "<group>"; };
+		D99D46401E97AFBF0074E887 /* PushNavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		D9DC80FF1D952F4E00F1AEBB /* NavIntertivityTransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavIntertivityTransitionDelegate.swift; sourceTree = "<group>"; };
 		D9F4A0191D8EAB3800280A2E /* LCShareView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCShareView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F4A01C1D8EAB3800280A2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +165,18 @@
 			path = CollectionTransition;
 			sourceTree = "<group>";
 		};
+		D99D46371E97AA940074E887 /* presentPush */ = {
+			isa = PBXGroup;
+			children = (
+				D99D46381E97AB180074E887 /* PushAnimation.swift */,
+				D99D463E1E97AF020074E887 /* PopAnimation.swift */,
+				D99D463A1E97AB9A0074E887 /* PushController.swift */,
+				D99D463C1E97ABAD0074E887 /* PopController.swift */,
+				D99D46401E97AFBF0074E887 /* PushNavigationControllerDelegate.swift */,
+			);
+			path = presentPush;
+			sourceTree = "<group>";
+		};
 		D9F4A0101D8EAB3800280A2E = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +207,7 @@
 				D91339D01D911E5F005EBD24 /* Interactivity */,
 				D91339DB1D914B0E005EBD24 /* presationController */,
 				D91339E41D9277F3005EBD24 /* NavigationTransition */,
+				D99D46371E97AA940074E887 /* presentPush */,
 				D90EF6931D8FB4FE000FE20D /* Main.storyboard */,
 				D9F4A0231D8EAB3800280A2E /* Assets.xcassets */,
 				D9F4A0251D8EAB3800280A2E /* LaunchScreen.storyboard */,
@@ -317,8 +340,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D99D46411E97AFBF0074E887 /* PushNavigationControllerDelegate.swift in Sources */,
 				D9DC81001D952F4E00F1AEBB /* NavIntertivityTransitionDelegate.swift in Sources */,
 				D91339EC1D929084005EBD24 /* SecondDetailController.swift in Sources */,
+				D99D46391E97AB180074E887 /* PushAnimation.swift in Sources */,
 				D91339E11D91526D005EBD24 /* CustomPresentationController.swift in Sources */,
 				D91339DA1D912E88005EBD24 /* InteractivityPercentTransition.swift in Sources */,
 				D919DE761DAB8DE3005269EE /* Then.swift in Sources */,
@@ -327,6 +352,7 @@
 				D91339E31D923F3E005EBD24 /* CustomPresentationAnimator.swift in Sources */,
 				D91339F21D929CC8005EBD24 /* NavigationPopAnimation.swift in Sources */,
 				D91339EE1D929279005EBD24 /* ExpandTransition.swift in Sources */,
+				D99D463B1E97AB9A0074E887 /* PushController.swift in Sources */,
 				D91339CB1D900D38005EBD24 /* CrossDissolveSecondController.swift in Sources */,
 				D9F4A01D1D8EAB3800280A2E /* AppDelegate.swift in Sources */,
 				D91339DD1D914B39005EBD24 /* CustomFirstController.swift in Sources */,
@@ -334,12 +360,14 @@
 				D91339E61D927816005EBD24 /* FirstCollectionController.swift in Sources */,
 				D91339EA1D927C96005EBD24 /* ThingCell.swift in Sources */,
 				D91339DF1D914B4C005EBD24 /* CustomSecondController.swift in Sources */,
+				D99D463F1E97AF020074E887 /* PopAnimation.swift in Sources */,
 				D91339CF1D90D2AA005EBD24 /* CrossDissolveAnimator.swift in Sources */,
 				D919DE791DAB8E84005269EE /* test.swift in Sources */,
 				D91339D21D911FA0005EBD24 /* InteractivityFirstController.swift in Sources */,
 				D91339E81D927A9F005EBD24 /* Thing.swift in Sources */,
 				D91339F01D929CAE005EBD24 /* NavigationPushAnimator.swift in Sources */,
 				D91339D41D91201F005EBD24 /* InteractivitySecondController.swift in Sources */,
+				D99D463D1E97ABAD0074E887 /* PopController.swift in Sources */,
 				D91339CA1D900D38005EBD24 /* CrossDissolveFirstController.swift in Sources */,
 				D91339D81D912358005EBD24 /* InteractivityTransitionAnimator.swift in Sources */,
 			);
