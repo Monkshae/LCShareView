@@ -251,7 +251,7 @@
 				TargetAttributes = {
 					D9F4A0181D8EAB3800280A2E = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = DGT9C327YY;
+						DevelopmentTeam = 98BPAMG7YA;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -485,6 +485,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 98BPAMG7YA;
 				INFOPLIST_FILE = LCShareView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lee.LCShareView;
@@ -502,6 +503,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 98BPAMG7YA;
 				INFOPLIST_FILE = LCShareView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lee.LCShareView;
