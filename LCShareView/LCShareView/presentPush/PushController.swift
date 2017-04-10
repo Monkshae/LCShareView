@@ -40,12 +40,12 @@ class PushController: UIViewController {
         view.backgroundColor = UIColor(red: 224/255, green: 222/255, blue: 1, alpha: 1)
         /// 设置navigationItem
         navigationItem.title = "自定义Presentation"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(CustomFirstController.leftBarButtonDidClicked))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(PushController.leftBarButtonDidClicked))
         
         let button = UIButton()
         button.setTitleColor(UIColor.blue, for: UIControlState())
         button.setTitle("演示动画", for: UIControlState())
-        button.addTarget(self, action: #selector(CustomFirstController.animationButtonDidClicked), for: .touchUpInside)
+        button.addTarget(self, action: #selector(PushController.animationButtonDidClicked), for: .touchUpInside)
         view.addSubview(button)
         button.snp.makeConstraints { (make) -> Void in
             make.centerX.equalTo(view)

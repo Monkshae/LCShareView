@@ -22,7 +22,6 @@ class PushAnimation: NSObject, UIViewControllerAnimatedTransitioning {
         
         let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)
         toView?.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        
         if toView != nil {
             containerView.addSubview(toView!)
         }

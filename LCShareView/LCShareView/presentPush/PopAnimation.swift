@@ -16,17 +16,11 @@ class PopAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let toController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! PushController
-        let fromController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! PopController
-
         let containerView = transitionContext.containerView
-//        let fromViewinitalFrame = transitionContext.initialFrame(for: fromController)
         let toViewFinalFrame = transitionContext.finalFrame(for: toController)
 
         let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)
         let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from)
-        
-//        toView?.frame = toViewFinalFrame
-        
         if toView != nil {
             containerView.addSubview(toView!)
             containerView.addSubview(fromView!)
@@ -35,7 +29,6 @@ class PopAnimation: NSObject, UIViewControllerAnimatedTransitioning {
             toView?.frame = toViewFinalFrame
             fromView?.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         }, completion: { (finished: Bool) in
-//            fromView?.removeFromSuperview()
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }) 
         

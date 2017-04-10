@@ -16,7 +16,7 @@ class PopController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.red
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SecondDetailController.didButtonClicked(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(PopController.didButtonClicked(_:)))
     }
 
     //navigationController是共有的，离开页面后记得置空
