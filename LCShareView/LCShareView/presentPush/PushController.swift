@@ -65,16 +65,3 @@ class PushController: UIViewController {
     }
 
 }
-
-
-extension PushController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if fromVC is PushController && toVC is PopController {
-            return  NavigationPushAnimator()
-        }else {
-            return nil
-        }
-    }
-}
-

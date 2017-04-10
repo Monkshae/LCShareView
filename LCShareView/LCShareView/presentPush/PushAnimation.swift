@@ -11,7 +11,7 @@ import UIKit
 class PushAnimation: NSObject, UIViewControllerAnimatedTransitioning {
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.3
+        return 0.25
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -25,11 +25,11 @@ class PushAnimation: NSObject, UIViewControllerAnimatedTransitioning {
         if toView != nil {
             containerView.addSubview(toView!)
         }
-        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+        
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, options: .curveEaseInOut, animations: { 
             toView?.frame = toViewFinalFrame
-        }, completion: { (finished: Bool) in
+        }) { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-        }) 
-
+        }
     }
 }
