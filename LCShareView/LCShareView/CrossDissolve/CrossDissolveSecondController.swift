@@ -17,7 +17,7 @@ class CrossDissolveSecondController: UIViewController {
     
     func setupView() {
         let button = UIButton(type: .custom)
-        button.setTitle("dismiss", for: UIControlState())
+        button.setTitle("dismiss", for: UIControl.State())
         button.backgroundColor = UIColor.red
         button.addTarget(self, action: #selector(CrossDissolveSecondController.aniamtionAction), for: .touchUpInside)
         view.addSubview(button)
@@ -28,7 +28,7 @@ class CrossDissolveSecondController: UIViewController {
         }
     }
     
-    func aniamtionAction() {
+    @objc func aniamtionAction() {
         self.dismiss(animated: true, completion: nil)
     }
 }

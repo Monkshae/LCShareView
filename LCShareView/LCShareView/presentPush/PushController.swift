@@ -1,24 +1,23 @@
 //
-//  PushController.swift
-//  LCShareView
+//  ViewController.swift
+//  PushAnimation
 //
-//  Created by licong on 2017/4/7.
-//  Copyright © 2017年 Sean Lee. All rights reserved.
+//  Created by licong on 2017/4/10.
+//  Copyright © 2017年 Richard. All rights reserved.
 //
 
 import UIKit
 
 class PushController: UIViewController {
 
-    
     //这是toViewController
     lazy var popController: PopController = {
         return $0
     }(PopController())
     
-
-    fileprivate var  navDelegate = PushNavigationControllerDelegate()
-
+    
+    fileprivate var  navDelegate = NavigationAnimationDelegate()
+    
     //navigationController是共有的，离开页面后记得置空
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -36,27 +35,17 @@ class PushController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = UIColor(red: 224/255, green: 222/255, blue: 1, alpha: 1)
-        /// 设置navigationItem
-        navigationItem.title = "自定义Presentation"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(PushController.leftBarButtonDidClicked))
         
+        view.backgroundColor = UIColor(red: 224/255, green: 222/255, blue: 1, alpha: 1)
         let button = UIButton()
-        button.setTitleColor(UIColor.blue, for: UIControlState())
-        button.setTitle("演示动画", for: UIControlState())
+        button.setTitleColor(UIColor.blue, for: UIControl.State())
+        button.setTitle("演示动画", for: UIControl.State())
         button.addTarget(self, action: #selector(PushController.animationButtonDidClicked), for: .touchUpInside)
         view.addSubview(button)
-        button.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo(view)
-            make.width.equalTo(250)
-            make.height.equalTo(60)
-            make.bottom.equalTo(view).offset(-40)
-        }
-        // Do any additional setup after loading the view.
+        button.frame = CGRect(x: 80, y: 400, width: 200, height: 60)
     }
-
-    func animationButtonDidClicked() {
+    
+    @objc func animationButtonDidClicked() {
         navigationController?.pushViewController(popController, animated: true)
     }
     
@@ -65,3 +54,4 @@ class PushController: UIViewController {
     }
 
 }
+

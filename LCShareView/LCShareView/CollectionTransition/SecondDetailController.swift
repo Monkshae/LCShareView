@@ -34,13 +34,12 @@ class SecondDetailController: UIViewController {
     
     fileprivate var  navDelegate = NavIntertivityTransitionDelegate(gestureRecognizer: nil)
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0x3A/255, green: 0xDB/255, blue: 0xD2/255, alpha: 1)
         view.addSubview(imageView)
         view.addSubview(overviewLabel)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SecondDetailController.didButtonClicked(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItem.Style.plain, target: self, action: #selector(SecondDetailController.didButtonClicked(_:)))
         view.addGestureRecognizer(navTransitionRecognizer)
     }
 
@@ -62,12 +61,12 @@ class SecondDetailController: UIViewController {
     
     
     
-    func didButtonClicked(_ sender: UIButton)  {
+    @objc func didButtonClicked(_ sender: UIButton)  {
         _ = navigationController?.popViewController(animated: true)
     }
     
     
-    func animationAction(_ gestureRecongizer: UIScreenEdgePanGestureRecognizer) {
+    @objc func animationAction(_ gestureRecongizer: UIScreenEdgePanGestureRecognizer) {
         
         if let nav =  navigationController?.delegate as?  NavIntertivityTransitionDelegate {
             nav.gestureRecognizer = gestureRecongizer

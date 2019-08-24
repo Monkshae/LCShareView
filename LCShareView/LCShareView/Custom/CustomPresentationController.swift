@@ -23,13 +23,13 @@ class CustomPresentationController: UIPresentationController {
         let dimmingView = UIView(frame: (self.containerView?.bounds)!)
         dimmingView.backgroundColor = UIColor.black
         dimmingView.isOpaque = false
-        dimmingView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        dimmingView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         dimmingView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(CustomPresentationController.dimmingViewTapped(_:))))
         return dimmingView
     }()
     
     //点击蒙层触发事件
-    func dimmingViewTapped(_ sender: UITapGestureRecognizer) {
+    @objc func dimmingViewTapped(_ sender: UITapGestureRecognizer) {
         self.presentingViewController.dismiss(animated: true, completion: nil)
     }
     

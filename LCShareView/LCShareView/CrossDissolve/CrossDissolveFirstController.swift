@@ -39,7 +39,7 @@ class CrossDissolveFirstController: UIViewController {
         }
         
         let button = UIButton(type: .custom)
-        button.setTitle("present", for: UIControlState())
+        button.setTitle("present", for: UIControl.State())
         button.addTarget(self, action: #selector(CrossDissolveFirstController.aniamtionAction), for: .touchUpInside)
         view.addSubview(button)
         button.snp.makeConstraints { (make) in
@@ -50,12 +50,12 @@ class CrossDissolveFirstController: UIViewController {
         }
     }
     
-    func backAction() {
+    @objc func backAction() {
         self.dismiss(animated: true, completion: nil)
     }
     
     
-    func aniamtionAction() {
+    @objc func aniamtionAction() {
         self.present(secondController, animated: true, completion: nil)
     }
     

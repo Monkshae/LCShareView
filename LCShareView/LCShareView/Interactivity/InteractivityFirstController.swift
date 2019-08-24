@@ -32,7 +32,7 @@ class InteractivityFirstController: UIViewController {
     func setupView()  {
         view.backgroundColor = UIColor.purple
         navigationItem.title = "交互式动画"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(InteractivityFirstController.leftBarButtonDidClicked))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItem.Style.plain, target: self, action: #selector(InteractivityFirstController.leftBarButtonDidClicked))
         let label = UILabel()
         label.text = "From"
         label.font = UIFont(name: "Helvetica", size: 50)
@@ -44,8 +44,8 @@ class InteractivityFirstController: UIViewController {
         }
         
         let button = UIButton()
-        button.setTitleColor(UIColor.blue, for: UIControlState())
-        button.setTitle("present", for: UIControlState())
+        button.setTitleColor(UIColor.blue, for: UIControl.State())
+        button.setTitle("present", for: UIControl.State())
         button.addTarget(self, action: #selector(InteractivityFirstController.animationAction(_:)), for: .touchUpInside)
         view.addSubview(button)
         button.snp.makeConstraints { (make) -> Void in
@@ -57,19 +57,19 @@ class InteractivityFirstController: UIViewController {
     }
     
     
-    func leftBarButtonDidClicked() {
+    @objc func leftBarButtonDidClicked() {
         self.dismiss(animated: true, completion: nil)
     }
     
     //在开始触发手势时，调用
-    func interactiveTransitionRecognizerAction(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+    @objc func interactiveTransitionRecognizerAction(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
        
         if gestureRecognizer.state == .began {
             animationAction(gestureRecognizer)
         }
     }
     
-    func animationAction(_ sender: AnyObject) {
+    @objc func animationAction(_ sender: AnyObject) {
         if sender is UIGestureRecognizer {
             trasitionDelegate.gestureRecognizer = trasitionRecognizer
         } else {

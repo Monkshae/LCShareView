@@ -42,7 +42,7 @@ extension ConstraintInsets: ConstraintConstantTarget {
 
 extension ConstraintConstantTarget {
     
-    internal func constraintConstantTargetValueFor(layoutAttribute: NSLayoutAttribute) -> CGFloat {
+    internal func constraintConstantTargetValueFor(layoutAttribute: LayoutAttribute) -> CGFloat {
         if let value = self as? CGFloat {
             return value
         }
@@ -107,9 +107,9 @@ extension ConstraintConstantTarget {
                 case .bottom, .bottomMargin:
                     return -value.bottom
                 case .leading, .leadingMargin:
-                    return (ConstraintConfig.interfaceLayoutDirection == .leftToRight) ? value.left : -value.right
+                    return (ConstraintConfig.interfaceLayoutDirection == .leftToRight) ? value.left : value.right
                 case .trailing, .trailingMargin:
-                    return (ConstraintConfig.interfaceLayoutDirection == .leftToRight) ? value.right : -value.left
+                    return (ConstraintConfig.interfaceLayoutDirection == .leftToRight) ? -value.right : -value.left
                 case .width:
                     return -(value.left + value.right)
                 case .height:
@@ -128,9 +128,9 @@ extension ConstraintConstantTarget {
                 case .bottom:
                     return -value.bottom
                 case .leading:
-                    return (ConstraintConfig.interfaceLayoutDirection == .leftToRight) ? value.left : -value.right
+                    return (ConstraintConfig.interfaceLayoutDirection == .leftToRight) ? value.left : value.right
                 case .trailing:
-                    return (ConstraintConfig.interfaceLayoutDirection == .leftToRight) ? value.right : -value.left
+                    return (ConstraintConfig.interfaceLayoutDirection == .leftToRight) ? -value.right : -value.left
                 case .width:
                     return -(value.left + value.right)
                 case .height:

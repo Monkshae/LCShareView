@@ -26,7 +26,7 @@ class ExpandTransition: UIPercentDrivenInteractiveTransition {
     }
     
     
-    func gestureRecognizeDidUpdate(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+    @objc func gestureRecognizeDidUpdate(_ recognizer: UIScreenEdgePanGestureRecognizer) {
         let transitionContainerView = transitionContext?.containerView
         if transitionContainerView != nil {
             //获取到的是手指移动后，在相对于self.view坐标中的偏移量

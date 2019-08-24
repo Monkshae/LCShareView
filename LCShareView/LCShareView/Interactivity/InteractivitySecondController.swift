@@ -24,7 +24,7 @@ class InteractivitySecondController: UIViewController {
     func setupView()  {
         view.backgroundColor = UIColor.green
         navigationItem.title = "Second"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(InteractivityFirstController.animationAction(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItem.Style.plain, target: self, action: #selector(InteractivityFirstController.animationAction(_:)))
         let label = UILabel()
         label.text = "To"
         label.textAlignment = .center
@@ -51,7 +51,7 @@ class InteractivitySecondController: UIViewController {
     }
 
     
-    func animationAction(sender: UIScreenEdgePanGestureRecognizer?) {
+    @objc func animationAction(sender: UIScreenEdgePanGestureRecognizer?) {
         if sender?.state == .began {
             self.buttonDidClicked(sender: sender!)
         }

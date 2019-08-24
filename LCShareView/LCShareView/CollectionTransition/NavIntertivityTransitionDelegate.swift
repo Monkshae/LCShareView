@@ -20,7 +20,7 @@ class NavIntertivityTransitionDelegate: NSObject, UINavigationControllerDelegate
     
     
     //push 和pop 转场动画
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if fromVC is FirstCollectionController && operation == .push  {
             return NavigationPushAnimator()
         } else if operation == .pop && fromVC is SecondDetailController {

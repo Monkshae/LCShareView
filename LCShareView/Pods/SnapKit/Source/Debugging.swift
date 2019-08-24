@@ -66,7 +66,7 @@ public extension LayoutConstraint {
             }
         }
         
-        if self.priority != 1000.0 {
+        if self.priority.rawValue != 1000.0 {
             description += " ^\(self.priority)"
         }
         
@@ -77,7 +77,7 @@ public extension LayoutConstraint {
     
 }
 
-private func descriptionForRelation(_ relation: NSLayoutRelation) -> String {
+private func descriptionForRelation(_ relation: LayoutRelation) -> String {
     switch relation {
     case .equal:                return "=="
     case .greaterThanOrEqual:   return ">="
@@ -85,7 +85,7 @@ private func descriptionForRelation(_ relation: NSLayoutRelation) -> String {
     }
 }
 
-private func descriptionForAttribute(_ attribute: NSLayoutAttribute) -> String {
+private func descriptionForAttribute(_ attribute: LayoutAttribute) -> String {
     #if os(iOS) || os(tvOS)
         switch attribute {
         case .notAnAttribute:       return "notAnAttribute"
@@ -144,7 +144,7 @@ private func descriptionForObject(_ object: AnyObject) -> String {
     desc += type(of: object).description()
     
     if let object = object as? ConstraintView {
-        desc += ":\(object.snp.label ?? pointerDescription)"
+        desc += ":\(object.snp.label() ?? pointerDescription)"
     } else if let object = object as? LayoutConstraint {
         desc += ":\(object.label ?? pointerDescription)"
     } else {

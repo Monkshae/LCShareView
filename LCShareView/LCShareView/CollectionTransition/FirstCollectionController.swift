@@ -16,7 +16,7 @@ class FirstCollectionController: UIViewController {
         layout.itemSize = CGSize(width: 150, height: 200)
         layout.minimumInteritemSpacing = 20
         layout.minimumLineSpacing = 20
-        layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -54,7 +54,7 @@ class FirstCollectionController: UIViewController {
             make.top.equalTo(0)
             make.bottom.equalTo(0)
         }
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(InteractivityFirstController.animationAction(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItem.Style.plain, target: self, action: #selector(InteractivityFirstController.animationAction(_:)))
     }
     
     func animationAction(_ sender: AnyObject) {
@@ -101,7 +101,7 @@ extension FirstCollectionController: UICollectionViewDelegate {
 
 extension FirstCollectionController: UINavigationControllerDelegate {
     
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if fromVC is FirstCollectionController && toVC is SecondDetailController {
             return  NavigationPushAnimator()
         }else {

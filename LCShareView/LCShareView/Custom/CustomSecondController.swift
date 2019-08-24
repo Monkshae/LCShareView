@@ -41,8 +41,8 @@ class CustomSecondController: UIViewController {
         
         /// 创建button
         let button = UIButton()
-        button.setTitleColor(UIColor.blue, for: UIControlState())
-        button.setTitle("Dismiss", for: UIControlState())
+        button.setTitleColor(UIColor.blue, for: UIControl.State())
+        button.setTitle("Dismiss", for: UIControl.State())
         button.addTarget(self, action: #selector(CustomSecondController.buttonDidClicked), for: .touchUpInside)
         view.addSubview(button)
         button.snp.makeConstraints { (make) -> Void in
@@ -67,11 +67,11 @@ class CustomSecondController: UIViewController {
         slider.value = self.slider.maximumValue
     }
     
-    func buttonDidClicked() {
+    @objc func buttonDidClicked() {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    func sliderValueChange(_ sender: UISlider) {
+    @objc func sliderValueChange(_ sender: UISlider) {
         self.preferredContentSize = CGSize(width: self.view.bounds.size.width, height: CGFloat(sender.value))
     }
 }

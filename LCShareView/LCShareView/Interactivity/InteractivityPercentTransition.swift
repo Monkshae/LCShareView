@@ -27,7 +27,7 @@ class InteractivityPercentTransition: UIPercentDrivenInteractiveTransition {
     }
     
     /// 当手势有滑动时触发这个函数
-    func gestureRecognizeDidUpdate(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+    @objc func gestureRecognizeDidUpdate(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
         switch gestureRecognizer.state {
         case .began: break
         case .changed: self.update(self.percentForGesture(gestureRecognizer))  //手势滑动，更新百分比
